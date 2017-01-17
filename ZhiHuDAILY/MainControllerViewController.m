@@ -10,6 +10,7 @@
 #import "DEMOLeftMenuViewController.h"
 #import "DEMORightMenuViewController.h"
 #import "DEMOFirstViewController.h"
+#import "MenuViewController.h"
 
 @interface MainControllerViewController ()
 
@@ -20,12 +21,19 @@
 -(void)awakeFromNib{
     [super awakeFromNib];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[DEMOFirstViewController alloc] init]];
-    DEMOLeftMenuViewController *leftMenuViewController = [[DEMOLeftMenuViewController alloc] init];
+    MenuViewController *leftMenuViewController = [[MenuViewController alloc] init];
     DEMORightMenuViewController *rightMenuViewController = [[DEMORightMenuViewController alloc] init];
 
     self.contentViewController = navigationController;
     self.leftMenuViewController = leftMenuViewController;
     self.rightMenuViewController = rightMenuViewController;
+    
+    self.panFromEdge=NO;
+    self.scaleMenuView=NO;
+    self.scaleContentView=NO;
+    self.contentViewInLandscapeOffsetCenterX=0;
+    self.contentViewInPortraitOffsetCenterX=200-self.view.frame.size.width/2;
+    
 }
 
 - (void)viewDidLoad {

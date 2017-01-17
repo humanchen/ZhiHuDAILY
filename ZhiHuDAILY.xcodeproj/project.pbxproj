@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2DAC08E99818D69CD9F5E9EB /* libPods-ZhiHuDAILY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6EC93E54D2B1F2811628898 /* libPods-ZhiHuDAILY.a */; };
+		65446D231E2E569D00B0C504 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65446D211E2E569D00B0C504 /* MenuViewController.m */; };
+		65446D241E2E569D00B0C504 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65446D221E2E569D00B0C504 /* MenuViewController.xib */; };
 		E32C39001E2DB41D00F39FC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C38FF1E2DB41D00F39FC8 /* main.m */; };
 		E32C39031E2DB41D00F39FC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C39021E2DB41D00F39FC8 /* AppDelegate.m */; };
 		E32C39061E2DB41D00F39FC8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C39051E2DB41D00F39FC8 /* ViewController.m */; };
@@ -23,6 +25,9 @@
 
 /* Begin PBXFileReference section */
 		298BDCC3595CA09D3328E677 /* Pods-ZhiHuDAILY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiHuDAILY.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiHuDAILY/Pods-ZhiHuDAILY.release.xcconfig"; sourceTree = "<group>"; };
+		65446D201E2E569D00B0C504 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		65446D211E2E569D00B0C504 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		65446D221E2E569D00B0C504 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		AC3BFD2C8DFE23A0BEA64295 /* Pods-ZhiHuDAILY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiHuDAILY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiHuDAILY/Pods-ZhiHuDAILY.debug.xcconfig"; sourceTree = "<group>"; };
 		E32C38FB1E2DB41D00F39FC8 /* ZhiHuDAILY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiHuDAILY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32C38FF1E2DB41D00F39FC8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -68,6 +73,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		65446D1F1E2E563600B0C504 /* Menu(菜单) */ = {
+			isa = PBXGroup;
+			children = (
+				65446D201E2E569D00B0C504 /* MenuViewController.h */,
+				65446D211E2E569D00B0C504 /* MenuViewController.m */,
+				65446D221E2E569D00B0C504 /* MenuViewController.xib */,
+			);
+			name = "Menu(菜单)";
+			sourceTree = "<group>";
+		};
 		E0FACF7755A9DB57581D80D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +112,7 @@
 		E32C38FD1E2DB41D00F39FC8 /* ZhiHuDAILY */ = {
 			isa = PBXGroup;
 			children = (
+				65446D1F1E2E563600B0C504 /* Menu(菜单) */,
 				E32C39151E2E05C400F39FC8 /* Main(主) */,
 				E32C39011E2DB41D00F39FC8 /* AppDelegate.h */,
 				E32C39021E2DB41D00F39FC8 /* AppDelegate.m */,
@@ -201,6 +217,7 @@
 				E32C390E1E2DB41D00F39FC8 /* LaunchScreen.storyboard in Resources */,
 				E32C390B1E2DB41D00F39FC8 /* Assets.xcassets in Resources */,
 				E32C39091E2DB41D00F39FC8 /* Main.storyboard in Resources */,
+				65446D241E2E569D00B0C504 /* MenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E32C39061E2DB41D00F39FC8 /* ViewController.m in Sources */,
+				65446D231E2E569D00B0C504 /* MenuViewController.m in Sources */,
 				E38807DC1E2E0BB500569D9D /* DEMORightMenuViewController.m in Sources */,
 				E32C39181E2E076A00F39FC8 /* MainControllerViewController.m in Sources */,
 				E32C39031E2DB41D00F39FC8 /* AppDelegate.m in Sources */,
