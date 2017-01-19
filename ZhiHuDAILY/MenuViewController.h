@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MenuViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *headView;
 
 @end

@@ -6,8 +6,8 @@
 //  Copyright © 2017年 陈思宇. All rights reserved.
 //
 
-#import <RESideMenu/RESideMenu.h>
+#import <MMDrawerController.h>
 
-@interface MainControllerViewController : RESideMenu
+@interface MainControllerViewController : MMDrawerController
 
 @end

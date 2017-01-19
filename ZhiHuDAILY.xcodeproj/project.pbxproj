@@ -21,6 +21,7 @@
 		E38807DB1E2E0BB500569D9D /* DEMOLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38807D51E2E0BB500569D9D /* DEMOLeftMenuViewController.m */; };
 		E38807DC1E2E0BB500569D9D /* DEMORightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38807D71E2E0BB500569D9D /* DEMORightMenuViewController.m */; };
 		E38807DD1E2E0BB500569D9D /* DEMOSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38807D91E2E0BB500569D9D /* DEMOSecondViewController.m */; };
+		E38807E21E2F55C200569D9D /* MMExampleDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E38807E11E2F55C200569D9D /* MMExampleDrawerVisualStateManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		E38807D71E2E0BB500569D9D /* DEMORightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMORightMenuViewController.m; sourceTree = "<group>"; };
 		E38807D81E2E0BB500569D9D /* DEMOSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOSecondViewController.h; sourceTree = "<group>"; };
 		E38807D91E2E0BB500569D9D /* DEMOSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOSecondViewController.m; sourceTree = "<group>"; };
+		E38807E01E2F55C200569D9D /* MMExampleDrawerVisualStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMExampleDrawerVisualStateManager.h; sourceTree = "<group>"; };
+		E38807E11E2F55C200569D9D /* MMExampleDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMExampleDrawerVisualStateManager.m; sourceTree = "<group>"; };
 		F6EC93E54D2B1F2811628898 /* libPods-ZhiHuDAILY.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZhiHuDAILY.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,6 +115,7 @@
 		E32C38FD1E2DB41D00F39FC8 /* ZhiHuDAILY */ = {
 			isa = PBXGroup;
 			children = (
+				E38807DE1E2F552200569D9D /* Tools(工具) */,
 				65446D1F1E2E563600B0C504 /* Menu(菜单) */,
 				E32C39151E2E05C400F39FC8 /* Main(主) */,
 				E32C39011E2DB41D00F39FC8 /* AppDelegate.h */,
@@ -150,6 +154,23 @@
 				E38807D91E2E0BB500569D9D /* DEMOSecondViewController.m */,
 			);
 			name = "Main(主)";
+			sourceTree = "<group>";
+		};
+		E38807DE1E2F552200569D9D /* Tools(工具) */ = {
+			isa = PBXGroup;
+			children = (
+				E38807DF1E2F555000569D9D /* VisualStateManager */,
+			);
+			name = "Tools(工具)";
+			sourceTree = "<group>";
+		};
+		E38807DF1E2F555000569D9D /* VisualStateManager */ = {
+			isa = PBXGroup;
+			children = (
+				E38807E01E2F55C200569D9D /* MMExampleDrawerVisualStateManager.h */,
+				E38807E11E2F55C200569D9D /* MMExampleDrawerVisualStateManager.m */,
+			);
+			name = VisualStateManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +306,7 @@
 				E38807DD1E2E0BB500569D9D /* DEMOSecondViewController.m in Sources */,
 				E38807DA1E2E0BB500569D9D /* DEMOFirstViewController.m in Sources */,
 				E32C39001E2DB41D00F39FC8 /* main.m in Sources */,
+				E38807E21E2F55C200569D9D /* MMExampleDrawerVisualStateManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
