@@ -9,6 +9,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="XVc-ys-u9P">
+            <objects>
+                <navigationController storyboardIdentifier="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uUg-K3-TLo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JJY-lh-fry">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1ek-iV-qo3" kind="relationship" relationship="rootViewController" id="5w9-Ce-tgR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h4Z-HS-gfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-238" y="-679"/>
+        </scene>
+        <!--登录-->
+        <scene sceneID="NC1-vn-xUt">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="1ek-iV-qo3" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iaa-3h-8nm"/>
+                        <viewControllerLayoutGuide type="bottom" id="2B1-SU-YRx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bdb-5t-ErO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="登录" id="lKU-Ie-JOb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gy2-4y-QdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="591" y="-680"/>
+        </scene>
         <!--Main Controller View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>

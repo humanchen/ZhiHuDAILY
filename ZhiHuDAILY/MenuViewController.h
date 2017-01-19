@@ -10,5 +10,7 @@
 
 @interface MenuViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *headView;
+@property (weak, nonatomic) IBOutlet UITableView *table;
+@property (weak, nonatomic) IBOutlet UIView *maskView;
 
 @end
