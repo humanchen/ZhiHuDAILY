@@ -16,7 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.loginButton.layer.cornerRadius=3;
     // Do any additional setup after loading the view.
+}
+- (IBAction)pop:(id)sender {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

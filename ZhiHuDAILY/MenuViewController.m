@@ -45,7 +45,7 @@
 
 - (IBAction)login:(id)sender {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LoginViewController *lvc= [story instantiateViewControllerWithIdentifier:@"LoginView"];
+    UINavigationController *lvc= [story instantiateViewControllerWithIdentifier:@"LoginView"];
     [self presentViewController:lvc animated:YES completion:nil];
     
 }
