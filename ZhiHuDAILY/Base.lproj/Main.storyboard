@@ -36,56 +36,13 @@
                     <view key="view" contentMode="scaleToFill" id="bdb-5t-ErO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login_Background" translatesAutoresizingMaskIntoConstraints="NO" id="Uz6-dq-NFq">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Dri-4e-ezX">
-                                <rect key="frame" x="124.5" y="104" width="125" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="4f9-wq-1pa"/>
-                                    <constraint firstAttribute="width" constant="125" id="o7P-X0-Eq3"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvq-4A-nCr">
-                                <rect key="frame" x="97" y="547" width="180" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="VE9-lT-cuL"/>
-                                    <constraint firstAttribute="width" constant="180" id="auX-aF-tCw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="知乎账号登录">
-                                    <color key="titleColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Uz6-dq-NFq" secondAttribute="trailing" id="HHC-yk-Z3A"/>
-                            <constraint firstItem="2B1-SU-YRx" firstAttribute="top" secondItem="Uz6-dq-NFq" secondAttribute="bottom" id="Lan-AV-7BZ"/>
-                            <constraint firstItem="cvq-4A-nCr" firstAttribute="centerX" secondItem="Uz6-dq-NFq" secondAttribute="centerX" id="Vq5-gk-elP"/>
-                            <constraint firstItem="Uz6-dq-NFq" firstAttribute="leading" secondItem="bdb-5t-ErO" secondAttribute="leading" id="d78-Jx-S86"/>
-                            <constraint firstItem="Uz6-dq-NFq" firstAttribute="top" secondItem="iaa-3h-8nm" secondAttribute="bottom" id="sxm-gP-Wzc"/>
-                            <constraint firstItem="2B1-SU-YRx" firstAttribute="top" secondItem="cvq-4A-nCr" secondAttribute="bottom" constant="80" id="szq-qZ-vKF"/>
-                            <constraint firstItem="Dri-4e-ezX" firstAttribute="top" secondItem="iaa-3h-8nm" secondAttribute="bottom" constant="40" id="tDY-z6-Nfd"/>
-                            <constraint firstItem="Dri-4e-ezX" firstAttribute="centerX" secondItem="Uz6-dq-NFq" secondAttribute="centerX" id="wEw-IO-fKO"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="登录" id="ZvU-rK-uA4">
-                        <barButtonItem key="leftBarButtonItem" image="Login_Arrow" style="plain" id="VIg-V7-8Ly">
-                            <connections>
-                                <action selector="pop:" destination="1ek-iV-qo3" id="V3O-lv-Cdp"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="loginButton" destination="cvq-4A-nCr" id="VNm-gr-6Br"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="登录" id="lKU-Ie-JOb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gy2-4y-QdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="807" y="-680"/>
+            <point key="canvasLocation" x="591" y="-680"/>
         </scene>
         <!--Main Controller View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -105,9 +62,4 @@
             </objects>
         </scene>
     </scenes>
-    <resources>
-        <image name="Login_Arrow" width="21" height="21"/>
-        <image name="Login_Background" width="320" height="506"/>
-        <image name="Login_Logo" width="125" height="45"/>
-    </resources>
 </document>

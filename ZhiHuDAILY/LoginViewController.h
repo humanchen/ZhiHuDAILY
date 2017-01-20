@@ -9,6 +9,5 @@
 #import "BaseViewController.h"
 
 @interface LoginViewController : BaseViewController
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
