@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A2005AC183D2B4B4FD2A626BC1392255"
-               BuildableName = "libPods-ZhiHuDAILY.a"
+               BlueprintIdentifier = "168535787137951893722237C2256B0D"
+               BuildableName = "Pods_ZhiHuDAILY.framework"
                BlueprintName = "Pods-ZhiHuDAILY"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -45,8 +45,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A2005AC183D2B4B4FD2A626BC1392255"
-            BuildableName = "libPods-ZhiHuDAILY.a"
+            BlueprintIdentifier = "168535787137951893722237C2256B0D"
+            BuildableName = "Pods_ZhiHuDAILY.framework"
             BlueprintName = "Pods-ZhiHuDAILY"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A2005AC183D2B4B4FD2A626BC1392255"
-            BuildableName = "libPods-ZhiHuDAILY.a"
-            BlueprintName = "Pods-ZhiHuDAILY"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

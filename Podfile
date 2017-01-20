@@ -1,4 +1,6 @@
 platform:ios, '8.0'
-target ‘ZhiHuDAILY’ do
+use_frameworks!
+target 'ZhiHuDAILY' do
 pod 'MMDrawerController'
+pod 'MJRefresh'
 end

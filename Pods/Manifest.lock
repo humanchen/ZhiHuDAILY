@@ -1,4 +1,5 @@
 PODS:
+  - MJRefresh (3.1.12)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
     - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
@@ -13,11 +14,13 @@ PODS:
     - MMDrawerController/Core
 
 DEPENDENCIES:
+  - MJRefresh
   - MMDrawerController
 
 SPEC CHECKSUMS:
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
 
-PODFILE CHECKSUM: c97ab5c1adc854eca06bb4f042349418ee5a2187
+PODFILE CHECKSUM: 24edd36e5afe47b63e133f951078342d1fd4b69e
 
 COCOAPODS: 1.1.1
