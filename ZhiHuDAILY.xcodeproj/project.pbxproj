@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		633E5B41B382EDA244AA7E4C /* Pods_ZhiHuDAILY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E25583339AD663D9E15E1280 /* Pods_ZhiHuDAILY.framework */; };
+		6530E4B61E3391BD0065C7F0 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530E4B51E3391BD0065C7F0 /* Theme.m */; };
 		65446D231E2E569D00B0C504 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65446D211E2E569D00B0C504 /* MenuViewController.m */; };
 		65446D241E2E569D00B0C504 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65446D221E2E569D00B0C504 /* MenuViewController.xib */; };
+		655E764E1E3366B700A986DF /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E764D1E3366B700A986DF /* BaseViewModel.m */; };
+		655E76511E3366EE00A986DF /* MenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E76501E3366EE00A986DF /* MenuViewModel.m */; };
+		655E76541E33670600A986DF /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E76531E33670600A986DF /* BaseModel.m */; };
+		655E76591E336C8300A986DF /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E76581E336C8300A986DF /* NetworkTools.m */; };
 		E32C39001E2DB41D00F39FC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C38FF1E2DB41D00F39FC8 /* main.m */; };
 		E32C39031E2DB41D00F39FC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C39021E2DB41D00F39FC8 /* AppDelegate.m */; };
 		E32C39061E2DB41D00F39FC8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C39051E2DB41D00F39FC8 /* ViewController.m */; };
@@ -28,9 +33,20 @@
 
 /* Begin PBXFileReference section */
 		298BDCC3595CA09D3328E677 /* Pods-ZhiHuDAILY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiHuDAILY.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiHuDAILY/Pods-ZhiHuDAILY.release.xcconfig"; sourceTree = "<group>"; };
+		6530E4B41E3391BD0065C7F0 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
+		6530E4B51E3391BD0065C7F0 /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
 		65446D201E2E569D00B0C504 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		65446D211E2E569D00B0C504 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		65446D221E2E569D00B0C504 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		655E764A1E335BDF00A986DF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
+		655E764C1E3366B700A986DF /* BaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
+		655E764D1E3366B700A986DF /* BaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
+		655E764F1E3366EE00A986DF /* MenuViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewModel.h; sourceTree = "<group>"; };
+		655E76501E3366EE00A986DF /* MenuViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewModel.m; sourceTree = "<group>"; };
+		655E76521E33670600A986DF /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		655E76531E33670600A986DF /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		655E76571E336C8300A986DF /* NetworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTools.h; sourceTree = "<group>"; };
+		655E76581E336C8300A986DF /* NetworkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTools.m; sourceTree = "<group>"; };
 		AC3BFD2C8DFE23A0BEA64295 /* Pods-ZhiHuDAILY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiHuDAILY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiHuDAILY/Pods-ZhiHuDAILY.debug.xcconfig"; sourceTree = "<group>"; };
 		E25583339AD663D9E15E1280 /* Pods_ZhiHuDAILY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZhiHuDAILY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32C38FB1E2DB41D00F39FC8 /* ZhiHuDAILY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiHuDAILY.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,11 +101,40 @@
 		65446D1F1E2E563600B0C504 /* Menu(菜单) */ = {
 			isa = PBXGroup;
 			children = (
+				655E76551E33671600A986DF /* Model */,
+				655E764B1E33668800A986DF /* ViewModel */,
 				65446D201E2E569D00B0C504 /* MenuViewController.h */,
 				65446D211E2E569D00B0C504 /* MenuViewController.m */,
 				65446D221E2E569D00B0C504 /* MenuViewController.xib */,
 			);
 			name = "Menu(菜单)";
+			sourceTree = "<group>";
+		};
+		655E764B1E33668800A986DF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				655E764F1E3366EE00A986DF /* MenuViewModel.h */,
+				655E76501E3366EE00A986DF /* MenuViewModel.m */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		655E76551E33671600A986DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6530E4B41E3391BD0065C7F0 /* Theme.h */,
+				6530E4B51E3391BD0065C7F0 /* Theme.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		655E76561E336C6400A986DF /* Network(网络) */ = {
+			isa = PBXGroup;
+			children = (
+				655E76571E336C8300A986DF /* NetworkTools.h */,
+				655E76581E336C8300A986DF /* NetworkTools.m */,
+			);
+			name = "Network(网络)";
 			sourceTree = "<group>";
 		};
 		E0FACF7755A9DB57581D80D4 /* Frameworks */ = {
@@ -121,6 +166,7 @@
 		E32C38FD1E2DB41D00F39FC8 /* ZhiHuDAILY */ = {
 			isa = PBXGroup;
 			children = (
+				655E76561E336C6400A986DF /* Network(网络) */,
 				E38807E41E30A95B00569D9D /* Base */,
 				E38807E31E30A63300569D9D /* Login */,
 				E38807DE1E2F552200569D9D /* Tools(工具) */,
@@ -142,6 +188,7 @@
 		E32C38FE1E2DB41D00F39FC8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				655E764A1E335BDF00A986DF /* PrefixHeader.pch */,
 				E32C38FF1E2DB41D00F39FC8 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -195,6 +242,10 @@
 			children = (
 				E38807E51E30A97600569D9D /* BaseViewController.h */,
 				E38807E61E30A97600569D9D /* BaseViewController.m */,
+				655E764C1E3366B700A986DF /* BaseViewModel.h */,
+				655E764D1E3366B700A986DF /* BaseViewModel.m */,
+				655E76521E33670600A986DF /* BaseModel.h */,
+				655E76531E33670600A986DF /* BaseModel.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -327,11 +378,16 @@
 				E32C39061E2DB41D00F39FC8 /* ViewController.m in Sources */,
 				65446D231E2E569D00B0C504 /* MenuViewController.m in Sources */,
 				E38807E71E30A97600569D9D /* BaseViewController.m in Sources */,
+				655E76541E33670600A986DF /* BaseModel.m in Sources */,
+				655E76591E336C8300A986DF /* NetworkTools.m in Sources */,
 				E38807DC1E2E0BB500569D9D /* DEMORightMenuViewController.m in Sources */,
+				655E764E1E3366B700A986DF /* BaseViewModel.m in Sources */,
 				E32C39181E2E076A00F39FC8 /* MainControllerViewController.m in Sources */,
 				E32C39031E2DB41D00F39FC8 /* AppDelegate.m in Sources */,
+				6530E4B61E3391BD0065C7F0 /* Theme.m in Sources */,
 				E38807DB1E2E0BB500569D9D /* DEMOLeftMenuViewController.m in Sources */,
 				E38807DD1E2E0BB500569D9D /* DEMOSecondViewController.m in Sources */,
+				655E76511E3366EE00A986DF /* MenuViewModel.m in Sources */,
 				E38807EA1E30A9C200569D9D /* LoginViewController.m in Sources */,
 				E38807DA1E2E0BB500569D9D /* DEMOFirstViewController.m in Sources */,
 				E32C39001E2DB41D00F39FC8 /* main.m in Sources */,
@@ -457,6 +513,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7LD5QKB26C;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = ZhiHuDAILY/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -472,6 +530,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7LD5QKB26C;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = ZhiHuDAILY/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -4,12 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>MMDrawerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PPNetworkHelper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -34,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>YYModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,12 +57,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5024863CA755DA531463CBD877C34C2D</key>
+		<key>147CB2AAE0C6350600AD234E64040BC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>99BB78D44BD9402FE4BE58280C6F4D21</key>
+		<key>53B5B5D925A22D299B8C87910BD94C1E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>558F0E24496B048DA581914B9CA805C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6897C48633BB065EB30D3D12345DF3D2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>74FB1DFB6015AFC142D7459223E9E65F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,22 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9550D2CD969C7DB98A93A7CA66C9CAE</key>
+		<key>CF671F7E57B92905F1CC91D036D6B4A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CF564C566A7F52407F0F3AC603A22BF8</key>
+		<key>D49EECA86959CD8AE58A636462420D55</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D6F9566A5B2B240935C0E80B387EE949</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E14A62900910444707A5504D25EC98DC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EDC270893B1DC1AF7CA531105FD6CC6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

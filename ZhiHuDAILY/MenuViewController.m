@@ -41,7 +41,33 @@
     //  设置渐变分割点
     shadow.locations = @[@(0.5f),@(1.0f)];
     // Do any additional setup after loading the view from its nib.
+    
+//    [self test];
+    [self setupRAC];
+    
 }
+
+- (void) setupRAC{
+    if(!_menuViewModel){
+        _menuViewModel=[[MenuViewModel alloc]init];
+    }
+    [[[_menuViewModel.requestCommand executionSignals]switchToLatest] subscribeNext:^(id  _Nullable x) {
+        [_table reloadData];
+    }];
+    [_menuViewModel.requestCommand execute:nil];
+}
+
+
+//- (void)test{
+//    NSString *themeUrl = @"http://news-at.zhihu.com/api/4/themes";
+//    [PPNetworkHelper GET:themeUrl parameters:nil responseCache:^(id responseCache) {
+//        //加载缓存数据
+//    } success:^(id responseObject) {
+//        //请求成功
+//    } failure:^(NSError *error) {
+//        //请求失败
+//    }];
+//}
 
 - (IBAction)login:(id)sender {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

@@ -6,4 +6,6 @@ pod 'MJRefresh'
 #pod 'ReactiveCocoa', '~> 4.0.0'
 pod 'ReactiveObjC', '~> 2.1.0'
 pod 'YYWebImage', '~> 1.0.5'
+pod 'PPNetworkHelper'
+pod 'YYModel'
 end

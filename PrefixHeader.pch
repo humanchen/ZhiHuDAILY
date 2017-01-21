@@ -1,0 +1,21 @@
+//
+//  PrefixHeader.pch
+//  ZhiHuDAILY
+//
+//  Created by human on 2017/1/21.
+//  Copyright © 2017年 陈思宇. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <ReactiveObjC/ReactiveObjC.h>
+#import <PPNetworkHelper/PPNetworkHelper.h>
+#import "NetworkTools.h"
+#import <YYModel/YYModel.h>
+#define kScreenWidth         [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight        [UIScreen mainScreen].bounds.size.height
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
