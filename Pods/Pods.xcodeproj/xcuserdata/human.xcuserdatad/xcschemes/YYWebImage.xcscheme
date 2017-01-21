@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B9550D2CD969C7DB98A93A7CA66C9CAE'
-               BlueprintName = 'ReactiveObjC'
+               BlueprintIdentifier = '5024863CA755DA531463CBD877C34C2D'
+               BlueprintName = 'YYWebImage'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'ReactiveObjC.framework'>
+               BuildableName = 'YYWebImage.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
