@@ -8,6 +8,7 @@
 
 #import "MenuViewController.h"
 #import "LoginViewController.h"
+#import "Theme.h"
 @interface MenuViewController ()
 
 @end
@@ -21,30 +22,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     self.headView.clipsToBounds=YES;
     self.headView.layer.cornerRadius=20;
     
-    
-    //  添加渐变层
-    CAGradientLayer * shadow = [CAGradientLayer layer];
-    shadow.frame = self.maskView.bounds;
-    [self.maskView.layer addSublayer:shadow];
-    
-    //  设置渐变的方向
-    shadow.startPoint = CGPointMake(0, 10);
-    shadow.endPoint = CGPointMake(0, 0);
-    
-    //  设置渐变的颜色
-    shadow.colors = @[(__bridge id)[UIColor colorWithRed:51 green:51 blue:51 alpha:1.0].CGColor,
-                      (__bridge id)[UIColor clearColor].CGColor];
-    
-    //  设置渐变分割点
-    shadow.locations = @[@(0.5f),@(1.0f)];
-    // Do any additional setup after loading the view from its nib.
-    
-//    [self test];
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.colors = @[(__bridge id)[UIColor blackColor].CGColor, (__bridge id)[UIColor clearColor].CGColor];
+    gradientLayer.locations = @[@0.0, @1.0];
+    gradientLayer.startPoint = CGPointMake(0, 1.0);
+    gradientLayer.endPoint = CGPointMake(0, 0);
+    gradientLayer.frame = CGRectMake(0, 0, 200, 30);
+    [self.maskView.layer addSublayer:gradientLayer];
+
     [self setupRAC];
-    
+    [self setupTable];
+}
+
+- (void)setupTable{
+    _table.dataSource=self;
+    _table.delegate=self;
+    _table.backgroundColor=[UIColor clearColor];
+    _table.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _table.rowHeight=60;
 }
 
 - (void) setupRAC{
@@ -52,10 +52,66 @@
         _menuViewModel=[[MenuViewModel alloc]init];
     }
     [[[_menuViewModel.requestCommand executionSignals]switchToLatest] subscribeNext:^(id  _Nullable x) {
+        Theme *firsttheme=[Theme new];
+        firsttheme.name=@"首页";
+        [_menuViewModel.menuList insertObject:firsttheme atIndex:0];
+        
         [_table reloadData];
     }];
     [_menuViewModel.requestCommand execute:nil];
 }
+
+
+#pragma mark tableView Delegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _menuViewModel.menuList.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *tableID = @"menuTable";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableID];
+    if(!cell){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:tableID];
+    }
+    cell.backgroundColor=[UIColor clearColor];
+    Theme *theme=_menuViewModel.menuList[indexPath.row];
+    cell.textLabel.text=theme.name;
+    cell.textLabel.textColor=[UIColor lightGrayColor];
+    cell.textLabel.font=[UIFont systemFontOfSize:16];
+    if(indexPath.row==0)
+    cell.imageView.image=[UIImage imageNamed:@"Dark_Menu_Icon_Home"];
+    else
+        cell.imageView.image=nil;
+    return cell;
+}
+
+//- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return YES;
+//}
+
+//- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+//    
+//    SYTheme *theme = self.dataSource[sourceIndexPath.row];
+//    [self.dataSource removeObjectAtIndex:sourceIndexPath.row];
+//    if (destinationIndexPath.row == 1) {
+//        [self.dataSource insertObject:theme atIndex:1];
+//    } else {
+//        [self.dataSource addObject:theme];
+//    }
+//    
+//}
+
+
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.row == 0) {
+//        [self.mainController setCenterViewController:self.naviHome withCloseAnimation:YES completion:nil];
+//    } else {
+//        self.themeController.theme = self.dataSource[indexPath.row];
+//        [self.mainController setCenterViewController:self.naviTheme withCloseAnimation:YES completion:nil];
+//    }
+//}
 
 
 //- (void)test{

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0810"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "74FB1DFB6015AFC142D7459223E9E65F"
-               BuildableName = "Pods_ZhiHuDAILY.framework"
-               BlueprintName = "Pods-ZhiHuDAILY"
+               BlueprintIdentifier = "E14A62900910444707A5504D25EC98DC"
+               BuildableName = "MJRefresh.framework"
+               BlueprintName = "MJRefresh"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "74FB1DFB6015AFC142D7459223E9E65F"
-            BuildableName = "Pods_ZhiHuDAILY.framework"
-            BlueprintName = "Pods-ZhiHuDAILY"
+            BlueprintIdentifier = "E14A62900910444707A5504D25EC98DC"
+            BuildableName = "MJRefresh.framework"
+            BlueprintName = "MJRefresh"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E14A62900910444707A5504D25EC98DC"
+            BuildableName = "MJRefresh.framework"
+            BlueprintName = "MJRefresh"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

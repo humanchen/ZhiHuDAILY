@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MenuViewModel.h"
-@interface MenuViewController : UIViewController
+@interface MenuViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet UIView *maskView;

@@ -32,7 +32,7 @@
     
     self.shouldStretchDrawer = NO;
     
-    [self setMaximumLeftDrawerWidth:200.0];
+    [self setMaximumLeftDrawerWidth:230.0];
     [self setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     
