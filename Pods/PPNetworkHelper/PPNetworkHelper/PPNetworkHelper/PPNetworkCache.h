@@ -54,7 +54,7 @@
  *  @param parameters 请求的参数
  *  @param block      异步回调缓存的数据
  *
- *  @return 缓存的服务器数据
+ *  return 缓存的服务器数据
  */
 + (void)httpCacheForURL:(NSString *)URL parameters:(NSDictionary *)parameters withBlock:(void(^)(id<NSCoding> object))block;
 

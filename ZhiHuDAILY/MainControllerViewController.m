@@ -24,7 +24,7 @@
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[DEMOFirstViewController alloc] init]];
     MenuViewController *leftMenuViewController = [[MenuViewController alloc] init];
-    DEMORightMenuViewController *rightMenuViewController = [[DEMORightMenuViewController alloc] init];
+//    DEMORightMenuViewController *rightMenuViewController = [[DEMORightMenuViewController alloc] init];
 
     self.centerViewController=navigationController;
     self.leftDrawerViewController=leftMenuViewController;
