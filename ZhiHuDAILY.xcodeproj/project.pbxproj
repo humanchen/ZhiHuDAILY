@@ -15,9 +15,9 @@
 		655E76511E3366EE00A986DF /* MenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E76501E3366EE00A986DF /* MenuViewModel.m */; };
 		655E76541E33670600A986DF /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E76531E33670600A986DF /* BaseModel.m */; };
 		655E76591E336C8300A986DF /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E76581E336C8300A986DF /* NetworkTools.m */; };
+		65FD92241E37549A003D0FD6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD92231E37549A003D0FD6 /* HomeViewController.m */; };
 		E32C39001E2DB41D00F39FC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C38FF1E2DB41D00F39FC8 /* main.m */; };
 		E32C39031E2DB41D00F39FC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C39021E2DB41D00F39FC8 /* AppDelegate.m */; };
-		E32C39061E2DB41D00F39FC8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C39051E2DB41D00F39FC8 /* ViewController.m */; };
 		E32C39091E2DB41D00F39FC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32C39071E2DB41D00F39FC8 /* Main.storyboard */; };
 		E32C390B1E2DB41D00F39FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E32C390A1E2DB41D00F39FC8 /* Assets.xcassets */; };
 		E32C390E1E2DB41D00F39FC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32C390C1E2DB41D00F39FC8 /* LaunchScreen.storyboard */; };
@@ -47,14 +47,23 @@
 		655E76531E33670600A986DF /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		655E76571E336C8300A986DF /* NetworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTools.h; sourceTree = "<group>"; };
 		655E76581E336C8300A986DF /* NetworkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTools.m; sourceTree = "<group>"; };
+		65FD920F1E36402E003D0FD6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		65FD92111E364037003D0FD6 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		65FD92131E36403F003D0FD6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		65FD92151E36404A003D0FD6 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		65FD92171E364051003D0FD6 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		65FD92191E364057003D0FD6 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		65FD921B1E364068003D0FD6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		65FD921D1E364070003D0FD6 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		65FD921F1E364077003D0FD6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		65FD92221E37549A003D0FD6 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		65FD92231E37549A003D0FD6 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		AC3BFD2C8DFE23A0BEA64295 /* Pods-ZhiHuDAILY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiHuDAILY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiHuDAILY/Pods-ZhiHuDAILY.debug.xcconfig"; sourceTree = "<group>"; };
 		E25583339AD663D9E15E1280 /* Pods_ZhiHuDAILY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZhiHuDAILY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32C38FB1E2DB41D00F39FC8 /* ZhiHuDAILY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiHuDAILY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32C38FF1E2DB41D00F39FC8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E32C39011E2DB41D00F39FC8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E32C39021E2DB41D00F39FC8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E32C39041E2DB41D00F39FC8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E32C39051E2DB41D00F39FC8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E32C39081E2DB41D00F39FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E32C390A1E2DB41D00F39FC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E32C390D1E2DB41D00F39FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -137,9 +146,27 @@
 			name = "Network(网络)";
 			sourceTree = "<group>";
 		};
+		65FD92211E37547A003D0FD6 /* Home(首页) */ = {
+			isa = PBXGroup;
+			children = (
+				65FD92221E37549A003D0FD6 /* HomeViewController.h */,
+				65FD92231E37549A003D0FD6 /* HomeViewController.m */,
+			);
+			name = "Home(首页)";
+			sourceTree = "<group>";
+		};
 		E0FACF7755A9DB57581D80D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65FD921F1E364077003D0FD6 /* libz.tbd */,
+				65FD921D1E364070003D0FD6 /* libsqlite3.tbd */,
+				65FD921B1E364068003D0FD6 /* MobileCoreServices.framework */,
+				65FD92191E364057003D0FD6 /* Accelerate.framework */,
+				65FD92171E364051003D0FD6 /* ImageIO.framework */,
+				65FD92151E36404A003D0FD6 /* AssetsLibrary.framework */,
+				65FD92131E36403F003D0FD6 /* QuartzCore.framework */,
+				65FD92111E364037003D0FD6 /* CoreFoundation.framework */,
+				65FD920F1E36402E003D0FD6 /* UIKit.framework */,
 				E25583339AD663D9E15E1280 /* Pods_ZhiHuDAILY.framework */,
 			);
 			name = Frameworks;
@@ -166,6 +193,7 @@
 		E32C38FD1E2DB41D00F39FC8 /* ZhiHuDAILY */ = {
 			isa = PBXGroup;
 			children = (
+				65FD92211E37547A003D0FD6 /* Home(首页) */,
 				655E76561E336C6400A986DF /* Network(网络) */,
 				E38807E41E30A95B00569D9D /* Base */,
 				E38807E31E30A63300569D9D /* Login */,
@@ -174,8 +202,6 @@
 				E32C39151E2E05C400F39FC8 /* Main(主) */,
 				E32C39011E2DB41D00F39FC8 /* AppDelegate.h */,
 				E32C39021E2DB41D00F39FC8 /* AppDelegate.m */,
-				E32C39041E2DB41D00F39FC8 /* ViewController.h */,
-				E32C39051E2DB41D00F39FC8 /* ViewController.m */,
 				E32C39071E2DB41D00F39FC8 /* Main.storyboard */,
 				E32C390A1E2DB41D00F39FC8 /* Assets.xcassets */,
 				E32C390C1E2DB41D00F39FC8 /* LaunchScreen.storyboard */,
@@ -375,7 +401,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E32C39061E2DB41D00F39FC8 /* ViewController.m in Sources */,
 				65446D231E2E569D00B0C504 /* MenuViewController.m in Sources */,
 				E38807E71E30A97600569D9D /* BaseViewController.m in Sources */,
 				655E76541E33670600A986DF /* BaseModel.m in Sources */,
@@ -384,6 +409,7 @@
 				655E764E1E3366B700A986DF /* BaseViewModel.m in Sources */,
 				E32C39181E2E076A00F39FC8 /* MainControllerViewController.m in Sources */,
 				E32C39031E2DB41D00F39FC8 /* AppDelegate.m in Sources */,
+				65FD92241E37549A003D0FD6 /* HomeViewController.m in Sources */,
 				6530E4B61E3391BD0065C7F0 /* Theme.m in Sources */,
 				E38807DB1E2E0BB500569D9D /* DEMOLeftMenuViewController.m in Sources */,
 				E38807DD1E2E0BB500569D9D /* DEMOSecondViewController.m in Sources */,

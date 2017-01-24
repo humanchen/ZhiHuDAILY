@@ -6,8 +6,8 @@
 //  Copyright © 2017年 陈思宇. All rights reserved.
 //
 
-#import "ViewController.h"
 
-@interface BaseViewController : ViewController
+
+@interface BaseViewController : UIViewController
 
 @end

@@ -12,23 +12,24 @@
 #import "DEMOFirstViewController.h"
 #import "MenuViewController.h"
 #import "MMExampleDrawerVisualStateManager.h"
+#import "HomeViewController.h"
 @interface MainControllerViewController ()
-
+@property(nonatomic,strong)UINavigationController *homeVC;
 @end
 
 @implementation MainControllerViewController
 
 -(void)awakeFromNib{
     [super awakeFromNib];
- 
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[DEMOFirstViewController alloc] init]];
-    MenuViewController *leftMenuViewController = [[MenuViewController alloc] init];
-//    DEMORightMenuViewController *rightMenuViewController = [[DEMORightMenuViewController alloc] init];
 
-    self.centerViewController=navigationController;
+    MenuViewController *leftMenuViewController = [[MenuViewController alloc] init];
+    leftMenuViewController.mainVC=self;
     self.leftDrawerViewController=leftMenuViewController;
-//    self.rightDrawerViewController=rightMenuViewController;
+    
+    HomeViewController *hvc=  [[HomeViewController alloc] init];
+    hvc.mainVC=self;
+    _homeVC = [[UINavigationController alloc] initWithRootViewController:hvc];
+    self.centerViewController=_homeVC;
     
     self.shouldStretchDrawer = NO;
     
@@ -37,7 +38,6 @@
     [self setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     
      [[MMExampleDrawerVisualStateManager sharedManager] setLeftDrawerAnimationType:MMDrawerAnimationTypeSlide];
-    
     [self
      setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
          MMDrawerControllerDrawerVisualStateBlock block;
@@ -50,7 +50,18 @@
     
 }
 
+- (void)openDrawer {
+    [self openDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
 
+- (void)closeDrawer {
+    [self closeDrawerAnimated:YES completion:nil];
+    
+}
+
+- (void)toggleDrawer {
+    self.openSide == MMDrawerSideNone ? [self openDrawer]:[self closeDrawer];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

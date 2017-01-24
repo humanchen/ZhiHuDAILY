@@ -10,4 +10,6 @@
 
 @interface MainControllerViewController : MMDrawerController
 
+- (void)toggleDrawer;
+
 @end
