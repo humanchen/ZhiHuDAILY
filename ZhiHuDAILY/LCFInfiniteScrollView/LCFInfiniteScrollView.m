@@ -30,6 +30,17 @@
     return self;
 }
 
+- (UIPageControl *)pageControl{
+    if(!_pageControl){
+        _pageControl=[[UIPageControl alloc]initWithFrame:CGRectMake((kScreenWidth-100)/2, self.frame.size.height-20, 100, 20)];
+        _pageControl.pageIndicatorTintColor=[UIColor whiteColor];
+        _pageControl.currentPageIndicatorTintColor=[UIColor redColor];
+        
+    }
+    return  _pageControl;
+}
+
+
 - (void)initialize {
     self.collectionViewLayout = [[LCFCollectionViewFlowLayout alloc] init];
     
@@ -37,6 +48,8 @@
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.collectionViewLayout];
     [self addSubview:self.collectionView];
+    
+    [self addSubview:self.pageControl];
     
     self.collectionView.backgroundColor  = [UIColor whiteColor];
     self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
@@ -105,9 +118,13 @@
     
     NSMutableArray *mutableItems = [[NSMutableArray alloc] init];
     
-    for (NSUInteger i = 0; i < 3; i++) {
-        [mutableItems addObjectsFromArray:items];
-    }
+//    for (NSUInteger i = 0; i < 3; i++) {
+//        [mutableItems addObjectsFromArray:items];
+//    }
+    
+    [mutableItems addObject:items.lastObject];
+    [mutableItems addObjectsFromArray:items];
+    [mutableItems addObject:items.firstObject];
     
     _items = mutableItems.copy;
     
@@ -116,7 +133,7 @@
        
         dispatch_async(dispatch_get_main_queue(), ^{
             if (CGPointEqualToPoint(self.collectionView.contentOffset, CGPointZero)) {
-                [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:items.count inSection:0]
+                [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]
                                             atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
                                                     animated:NO];
                 
@@ -124,6 +141,9 @@
             }
         });
     });
+    
+    self.pageControl.numberOfPages=items.count;
+    self.pageControl.currentPage=0;
 }
 
 - (void)setItemSize:(CGSize)itemSize {
@@ -203,16 +223,49 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat pageWidth = self.itemSize.width + self.itemSpacing;
-    CGFloat periodOffset = pageWidth * (self.items.count / 3);
-    CGFloat offsetActivatingMoveToBeginning = pageWidth * ((self.items.count / 3) * 2);
-    CGFloat offsetActivatingMoveToEnd = pageWidth * ((self.items.count / 3) * 1);
+    CGFloat periodOffset = pageWidth * (self.items.count -2);
+//    CGFloat offsetActivatingMoveToBeginning = pageWidth * ((self.items.count / 3) * 2);
+//    CGFloat offsetActivatingMoveToEnd = pageWidth * ((self.items.count / 3) * 1);
     
     CGFloat offsetX = scrollView.contentOffset.x;
-    if (offsetX > offsetActivatingMoveToBeginning) {
-        scrollView.contentOffset = CGPointMake((offsetX - periodOffset), 0);
-    } else if (offsetX < offsetActivatingMoveToEnd) {
-        scrollView.contentOffset = CGPointMake((offsetX + periodOffset), 0);
+    
+    if(offsetX<0){
+        scrollView.contentOffset=CGPointMake(periodOffset+offsetX, 0);
+    }else if(offsetX > pageWidth * (self.items.count-1) - self.frame.size.width){
+        scrollView.contentOffset= CGPointMake(offsetX - periodOffset, 0 );
     }
+    
+    if(self.itemSize.width <= self.frame.size.width){
+        
+        
+        
+        CGFloat startOff = pageWidth - (self.frame.size.width - (self.itemSize.width))/2;
+        self.pageControl.currentPage=(scrollView.contentOffset.x-startOff)/pageWidth;
+        if(offsetX < pageWidth)
+            self.pageControl.currentPage = self.items.count - 3;
+    }else{
+        CGFloat startOff = pageWidth;
+        int page = (scrollView.contentOffset.x -startOff)/pageWidth;
+        if(page > (self.items.count - 3)){
+            page=0;
+        }
+        
+        self.pageControl.currentPage=page;
+        
+        
+    }
+    
+    
+//    int x;
+//    if (offsetX > offsetActivatingMoveToBeginning) {
+//        scrollView.contentOffset = CGPointMake((offsetX - periodOffset), 0);
+//        x=(scrollView.contentOffset.x-offsetActivatingMoveToEnd)/pageWidth;
+//    } else if (offsetX < offsetActivatingMoveToEnd) {
+//        scrollView.contentOffset = CGPointMake((offsetX + periodOffset), 0);
+//        x=(scrollView.contentOffset.x-offsetActivatingMoveToEnd)/pageWidth;
+//    }
+//    x=(scrollView.contentOffset.x-offsetActivatingMoveToEnd)/pageWidth;
+//    self.pageControl.currentPage=(scrollView.contentOffset.x-offsetActivatingMoveToEnd)/pageWidth;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {

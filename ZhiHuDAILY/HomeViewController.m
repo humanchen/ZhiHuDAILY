@@ -58,7 +58,7 @@
         _infiniteScrollView.itemSize = CGSizeMake(kScreenWidth, 200);
         _infiniteScrollView.itemSpacing = 0;
         _infiniteScrollView.autoscroll = YES;
-        _infiniteScrollView.timeInterval = 5;
+        _infiniteScrollView.timeInterval = 2;
         
        NSArray * imageURLs = @[
                       @"http://a1.mzstatic.com/us/r30/Features49/v4/77/73/3b/77733b19-2fb6-be1a-6a5e-8e01c30d2c94/flowcase_796_390_2x.jpeg",

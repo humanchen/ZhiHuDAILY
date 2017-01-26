@@ -35,4 +35,6 @@
 
 @property (nonatomic, weak) id<LCFInfiniteScrollViewDelegate> delegate;
 
+@property (nonatomic,strong) UIPageControl *pageControl;
+
 @end
