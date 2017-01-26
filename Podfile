@@ -8,5 +8,6 @@ pod 'ReactiveObjC', '~> 2.1.0'
 pod 'YYWebImage'
 pod 'PPNetworkHelper'
 pod 'YYModel'
+#pod 'LCFInfiniteScrollView', '~> 0.1'
 #pod 'SDWebImage'
 end

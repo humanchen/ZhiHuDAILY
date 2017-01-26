@@ -7,9 +7,14 @@
 //
 
 #import "HomeViewController.h"
-
-@interface HomeViewController ()
+#import "HomeTableViewCell.h"
+#import "HomeRootClass.h"
+#import "LCFInfiniteScrollView.h"
+@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIButton *leftButton;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) LCFInfiniteScrollView *infiniteScrollView;
+
 @end
 
 @implementation HomeViewController
@@ -27,16 +32,103 @@
     return _leftButton;
 }
 
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.rowHeight = 80;
+        _tableView.showsVerticalScrollIndicator = NO;
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+        _tableView.tableHeaderView = view;
+        
+        
+        [_tableView registerNib:[UINib nibWithNibName:@"HomeTableViewCell" bundle:nil] forCellReuseIdentifier:@"HomeTableViewCell"];
+        _tableView.backgroundColor=[UIColor redColor];
+        
+    }
+    return _tableView;
+}
+
+- (LCFInfiniteScrollView *)infiniteScrollView{
+    if(!_infiniteScrollView){
+        
+        _infiniteScrollView = [[LCFInfiniteScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 200)];
+        _infiniteScrollView.itemSize = CGSizeMake(kScreenWidth, 200);
+        _infiniteScrollView.itemSpacing = 0;
+        _infiniteScrollView.autoscroll = YES;
+        _infiniteScrollView.timeInterval = 5;
+        
+       NSArray * imageURLs = @[
+                      @"http://a1.mzstatic.com/us/r30/Features49/v4/77/73/3b/77733b19-2fb6-be1a-6a5e-8e01c30d2c94/flowcase_796_390_2x.jpeg",
+                      @"http://a2.mzstatic.com/us/r30/Features49/v4/93/31/d4/9331d426-4596-51f4-8acd-5b0aba8c1692/flowcase_796_390_2x.jpeg",
+                      @"http://a5.mzstatic.com/us/r30/Features49/v4/2f/7e/1c/2f7e1c3a-0431-bfc6-13fc-fe77f3a2fcef/flowcase_796_390_2x.jpeg",
+                      @"http://a1.mzstatic.com/us/r30/Features69/v4/09/83/bf/0983bfcf-52e2-8e16-5541-7cd7e3a10c9e/flowcase_796_390_2x.jpeg",
+                      @"http://a1.mzstatic.com/us/r30/Features49/v4/33/b8/0c/33b80c3e-3f8f-5c31-50a6-b5964a6324f7/flowcase_796_390_2x.jpeg",
+                      @"http://a3.mzstatic.com/us/r30/Features49/v4/db/53/76/db5376f7-ff1b-0c07-501b-8e3e78f3efaf/flowcase_796_390_2x.jpeg",
+                      ];
+
+        NSMutableArray *items = [[NSMutableArray alloc] init];
+                      
+                      for (NSString *imageURL in imageURLs) {
+                          LCFInfiniteScrollViewItem *item = [LCFInfiniteScrollViewItem itemWithImageURL:imageURL text:nil];
+                          [items addObject:item];
+                      }
+
+        _infiniteScrollView.items = items;
+    }
+    return _infiniteScrollView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor grayColor];
     self.navigationController.navigationBar.hidden=YES;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
+    [self.view addSubview:self.tableView];
     [self.view addSubview:self.leftButton];
+    
+    self.tableView.tableHeaderView=self.infiniteScrollView;
+    [self test];
     // Do any additional setup after loading the view.
 }
 
+
+- (void)test{
+    NSString *url = @"http://news-at.zhihu.com/api/4/news/latest";
+
+    [PPNetworkHelper GET:url parameters:nil responseCache:^(id responseCache) {
+        //加载缓存数据
+    } success:^(id responseObject) {
+        //请求成功
+        HomeRootClass *rootClass=[HomeRootClass yy_modelWithDictionary:responseObject];
+        NSLog(@"123");
+    } failure:^(NSError *error) {
+        //请求失败
+    }];
+}
+
+#pragma mark - Table view  delegate & data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+//    SYBeforeStoryResult *result = self.storyGroup[section];
+    return 10;
+    
+}
+
+- (HomeTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeTableViewCell" forIndexPath:indexPath];
+    
+//    SYBeforeStoryResult *result = self.storyGroup[indexPath.section];
+//    cell.story = result.stories[indexPath.row];
+    return cell;
+}
 
 - (void)didClickedMenuButton:(UIButton *)sender {
     [self.mainVC toggleDrawer];
