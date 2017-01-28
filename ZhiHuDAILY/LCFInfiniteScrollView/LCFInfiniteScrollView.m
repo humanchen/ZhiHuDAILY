@@ -33,8 +33,8 @@
 - (UIPageControl *)pageControl{
     if(!_pageControl){
         _pageControl=[[UIPageControl alloc]initWithFrame:CGRectMake((kScreenWidth-100)/2, self.frame.size.height-20, 100, 20)];
-        _pageControl.pageIndicatorTintColor=[UIColor whiteColor];
-        _pageControl.currentPageIndicatorTintColor=[UIColor redColor];
+        _pageControl.pageIndicatorTintColor=[UIColor grayColor];
+        _pageControl.currentPageIndicatorTintColor=[UIColor whiteColor];
         
     }
     return  _pageControl;
