@@ -12,7 +12,7 @@
 #import "LCFInfiniteScrollView.h"
 #import "HomeViewModel.h"
 #import "Top_Stories.h"
-
+#import "Stories.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIButton *leftButton;
 @property (nonatomic, strong) UITableView *tableView;
@@ -149,7 +149,7 @@
         _infiniteScrollView.items = items;
 
         
-
+        [_tableView reloadData];
     }];
     [_homeViewModel.requestLatesdCommand execute:nil];
 }
@@ -176,14 +176,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
+   HomeRootClass *rootClass = _homeViewModel.storyGroups.firstObject;
+    return rootClass.stories.count;
 //    SYBeforeStoryResult *result = self.storyGroup[section];
-    return 10;
+//    return 10;
     
 }
 
 - (HomeTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeTableViewCell" forIndexPath:indexPath];
-    
+    HomeRootClass *rootClass = _homeViewModel.storyGroups.firstObject;
+    NSArray *arr=rootClass.stories;
+    Stories *story = arr[indexPath.row];
+    cell.story=story;
 //    SYBeforeStoryResult *result = self.storyGroup[indexPath.section];
 //    cell.story = result.stories[indexPath.row];
     return cell;

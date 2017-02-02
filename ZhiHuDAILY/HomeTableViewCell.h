@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "SYStory.h"
-
+#import "Stories.h"
 @interface HomeTableViewCell : UITableViewCell
 
-//@property (nonatomic, strong) SYStory *story;
 
+@property (nonatomic , strong) Stories *story;
 @end

@@ -48,6 +48,7 @@
                 <outlet property="image" destination="OF8-qr-F4X" id="ISQ-Iw-6TS"/>
                 <outlet property="multiImage" destination="4oG-To-um1" id="2FV-c5-T5J"/>
                 <outlet property="title" destination="E0N-Hm-9ez" id="L0B-Hs-lJ0"/>
+                <outlet property="titleLeft" destination="RR2-2e-f0b" id="ELf-B2-Ody"/>
             </connections>
             <point key="canvasLocation" x="360" y="272"/>
         </tableViewCell>

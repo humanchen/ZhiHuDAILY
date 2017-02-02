@@ -13,6 +13,7 @@
 #import <PPNetworkHelper/PPNetworkHelper.h>
 #import "NetworkTools.h"
 #import <YYModel/YYModel.h>
+#import <YYWebImage/YYWebImage.h>
 #define kScreenWidth         [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight        [UIScreen mainScreen].bounds.size.height
 // Include any system framework and library headers here that should be included in all compilation units.

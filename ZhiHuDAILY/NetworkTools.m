@@ -17,11 +17,11 @@
     
     [PPNetworkHelper GET:URL parameters:parameters responseCache:^(id responseCache) {
         //加载缓存数据
-        if(success)
+        if(responseCache)
             success(responseCache);
     } success:^(id responseObject) {
         //请求成功
-        if(success)
+        if(responseObject)
             success(responseObject);
     } failure:^(NSError *error) {
         //请求失败

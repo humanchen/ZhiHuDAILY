@@ -8,10 +8,11 @@
 
 #import "HomeTableViewCell.h"
 //#import "UIImageView+WebCache.h"
+
 @interface HomeTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *title;
-//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLeft;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLeft;
 @property (weak, nonatomic) IBOutlet UIImageView *multiImage;
 
 @end
@@ -19,24 +20,27 @@
 
 @implementation HomeTableViewCell
 
-//- (void)setStory:(SYStory *)story {
-//    _story = story;
-//    self.title.text = story.title;
-//    
-//    
-//    self.multiImage.hidden = !story.multipic;
-//    
-//    if (story.images.count > 0) {
-//        [self.image sd_setImageWithURL:[NSURL URLWithString:story.images.firstObject]];
-//        self.image.hidden = NO;
-//        self.titleLeft.constant = 18;
-//    } else {
-//        self.image.hidden = YES;
-//        self.multiImage.hidden = YES;
-//        self.titleLeft.constant = 18-60;
-//    }
-//    
-//}
+
+- (void) setStory:(Stories *)story{
+    _story = story;
+        self.title.text = story.title;
+    
+    
+        self.multiImage.hidden = !story.multipic;
+    
+        if (story.images.count > 0) {
+            [self.image yy_setImageWithURL:[NSURL URLWithString:story.images.firstObject] options:YYWebImageOptionProgressiveBlur |YYWebImageOptionSetImageWithFadeAnimation];
+
+            self.image.hidden = NO;
+            self.titleLeft.constant = 18;
+        } else {
+            self.image.hidden = YES;
+            self.multiImage.hidden = YES;
+            self.titleLeft.constant = 18-60;
+        }
+
+}
+
 
 
 

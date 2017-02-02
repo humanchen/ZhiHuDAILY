@@ -22,4 +22,6 @@
 
 @property (nonatomic, copy) NSString *ga_prefix;
 
+@property (nonatomic, assign) BOOL multipic;
+
 @end
