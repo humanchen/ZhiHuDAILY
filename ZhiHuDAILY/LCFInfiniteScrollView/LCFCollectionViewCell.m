@@ -25,6 +25,8 @@
     return self;
 }
 
+
+
 - (void)initialize {
     self.imageView = [[UIImageView alloc] init];
     [self.contentView addSubview:self.imageView];
@@ -46,24 +48,26 @@
     self.label = [[UILabel alloc] init];
     [self.contentView addSubview:self.label];
     
-    self.label.font = [UIFont systemFontOfSize:17];
+    self.label.font = [UIFont systemFontOfSize:20];
     self.label.textColor = [UIColor whiteColor];
     self.label.textAlignment = NSTextAlignmentCenter;
     self.label.numberOfLines = 0;
-    self.label.translatesAutoresizingMaskIntoConstraints = NO;
     
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[label]|"
-                                                                             options:0
-                                                                             metrics:nil
-                                                                               views:@{ @"label": self.label }]];
-    
-    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.label
-                                                                 attribute:NSLayoutAttributeCenterY
-                                                                 relatedBy:NSLayoutRelationEqual
-                                                                    toItem:self.contentView
-                                                                 attribute:NSLayoutAttributeCenterY
-                                                                multiplier:1
-                                                                  constant:0]];
+    self.label.frame=CGRectMake(28, 150, kScreenWidth-28*2, 30);
+//    self.label.translatesAutoresizingMaskIntoConstraints = NO;
+//    
+//    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[label]|"
+//                                                                             options:0
+//                                                                             metrics:nil
+//                                                                               views:@{ @"label": self.label }]];
+//    
+//    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.label
+//                                                                 attribute:NSLayoutAttributeCenterY
+//                                                                 relatedBy:NSLayoutRelationEqual
+//                                                                    toItem:self.contentView
+//                                                                 attribute:NSLayoutAttributeCenterY
+//                                                                multiplier:1
+//                                                                  constant:0]];
 }
 
 @end

@@ -133,16 +133,16 @@
     }
     [[[_homeViewModel.requestLatesdCommand executionSignals]switchToLatest] subscribeNext:^(id  _Nullable x) {
         
-        NSMutableArray *imageURLs = [NSMutableArray new];
-        for (Top_Stories *topStory in _homeViewModel.topStorys) {
-            [imageURLs addObject:topStory.image];
-        }
+//        NSMutableArray *imageURLs = [NSMutableArray new];
+//        for (Top_Stories *topStory in _homeViewModel.topStorys) {
+//            [imageURLs addObject:topStory.image];
+//        }
 
         
         NSMutableArray *items = [[NSMutableArray alloc] init];
         
-        for (NSString *imageURL in imageURLs) {
-            LCFInfiniteScrollViewItem *item = [LCFInfiniteScrollViewItem itemWithImageURL:imageURL text:nil];
+        for (Top_Stories *topStory in _homeViewModel.topStorys) {
+            LCFInfiniteScrollViewItem *item = [LCFInfiniteScrollViewItem itemWithImageURL:topStory.image text:topStory.title];
             [items addObject:item];
         }
         

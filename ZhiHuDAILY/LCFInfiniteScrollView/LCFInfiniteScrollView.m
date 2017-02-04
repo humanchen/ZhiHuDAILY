@@ -205,9 +205,23 @@
     LCFInfiniteScrollViewItem *item = self.items[indexPath.row];
     
 //    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:item.imageURL] placeholderImage:self.placeholderImage];
-      [cell.imageView yy_setImageWithURL:[NSURL URLWithString:item.imageURL] options:YYWebImageOptionProgressiveBlur |YYWebImageOptionSetImageWithFadeAnimation];
+    [cell.imageView yy_setImageWithURL:[NSURL URLWithString:item.imageURL] options:YYWebImageOptionProgressiveBlur |YYWebImageOptionSetImageWithFadeAnimation];
     cell.label.text = item.text;
     
+    
+    
+    cell.label.font = [UIFont systemFontOfSize:20];
+  
+    
+    
+    cell.label.lineBreakMode = NSLineBreakByTruncatingTail;
+    CGSize maximumLabelSize = CGSizeMake(kScreenWidth-28*2, 9999);//labelsize的最大值
+    
+    CGSize expectSize = [cell.label sizeThatFits:maximumLabelSize];
+    //别忘了把frame给回label，如果用xib加了约束的话可以只改一个约束的值
+    cell.label.frame = CGRectMake(28, 200-24-expectSize.height, expectSize.width, expectSize.height);
+    
+
     return cell;
 }
 
