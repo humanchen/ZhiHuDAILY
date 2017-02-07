@@ -155,19 +155,19 @@
 }
 
 
-- (void)test{
-    NSString *url = @"http://news-at.zhihu.com/api/4/news/latest";
-
-    [PPNetworkHelper GET:url parameters:nil responseCache:^(id responseCache) {
-        //加载缓存数据
-    } success:^(id responseObject) {
-        //请求成功
-        HomeRootClass *rootClass=[HomeRootClass yy_modelWithDictionary:responseObject];
-        NSLog(@"123");
-    } failure:^(NSError *error) {
-        //请求失败
-    }];
-}
+//- (void)test{
+//    NSString *url = @"http://news-at.zhihu.com/api/4/news/latest";
+//
+//    [PPNetworkHelper GET:url parameters:nil responseCache:^(id responseCache) {
+//        //加载缓存数据
+//    } success:^(id responseObject) {
+//        //请求成功
+//        HomeRootClass *rootClass=[HomeRootClass yy_modelWithDictionary:responseObject];
+//        NSLog(@"123");
+//    } failure:^(NSError *error) {
+//        //请求失败
+//    }];
+//}
 
 #pragma mark - Table view  delegate & data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -193,6 +193,16 @@
 //    cell.story = result.stories[indexPath.row];
     return cell;
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.navigationController pushViewController:[UIViewController new] animated:YES];
+//    SYBeforeStoryResult *result = self.storyGroup[indexPath.section];
+//    SYStory *story = result.stories[indexPath.row];
+//    
+//    [self gotoDetailControllerWithStory:story];
+}
+
 
 - (void)didClickedMenuButton:(UIButton *)sender {
     [self.mainVC toggleDrawer];
