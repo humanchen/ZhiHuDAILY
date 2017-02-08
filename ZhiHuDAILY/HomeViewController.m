@@ -47,7 +47,7 @@
         _tableView.rowHeight = 80;
         _tableView.showsVerticalScrollIndicator = NO;
         
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 220)];
         _tableView.tableHeaderView = view;
         
         
@@ -61,8 +61,8 @@
 - (LCFInfiniteScrollView *)infiniteScrollView{
     if(!_infiniteScrollView){
         
-        _infiniteScrollView = [[LCFInfiniteScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 200)];
-        _infiniteScrollView.itemSize = CGSizeMake(kScreenWidth, 200);
+        _infiniteScrollView = [[LCFInfiniteScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 220)];
+        _infiniteScrollView.itemSize = CGSizeMake(kScreenWidth, 220);
         _infiniteScrollView.itemSpacing = 0;
         _infiniteScrollView.autoscroll = YES;
         _infiniteScrollView.timeInterval = 5;
@@ -121,10 +121,11 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.view addSubview:self.tableView];
+    [self.view addSubview:self.infiniteScrollView];
     [self.view addSubview:self.leftButton];
     [self.view addSubview:self.titleLabel];
     
-    self.tableView.tableHeaderView=self.infiniteScrollView;
+    self.tableView.tableHeaderView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 220)];
     [self setupRAC];
     // Do any additional setup after loading the view.
 }
@@ -209,6 +210,21 @@
 
 - (void)didClickedMenuButton:(UIButton *)sender {
     [self.mainVC toggleDrawer];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView;{
+    CGFloat yoffset = scrollView.contentOffset.y;
+    if(yoffset<=0){
+        //下推
+        NSLog(@"t");
+        self.infiniteScrollView.frame=CGRectMake(0, 0, kScreenWidth, 220-yoffset);
+        [self.infiniteScrollView resetData];
+        
+    }else{
+        //上拉
+        self.infiniteScrollView.frame=CGRectMake(0, -yoffset, kScreenWidth, 220);
+        [self.infiniteScrollView resetData];
+    }
 }
 
 

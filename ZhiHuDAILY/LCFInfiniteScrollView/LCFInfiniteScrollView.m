@@ -14,7 +14,7 @@
 #import "YYWebImage.h"
 @interface LCFInfiniteScrollView () <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (nonatomic, strong) UICollectionView *collectionView;
+
 @property (nonatomic, strong) LCFCollectionViewFlowLayout *collectionViewLayout;
 @property (nonatomic, strong) NSTimer *timer;
 
@@ -33,7 +33,7 @@
 - (UIPageControl *)pageControl{
     if(!_pageControl){
         _pageControl=[[UIPageControl alloc]initWithFrame:CGRectMake((kScreenWidth-100)/2, self.frame.size.height-20, 100, 20)];
-        _pageControl.pageIndicatorTintColor=[UIColor grayColor];
+        _pageControl.pageIndicatorTintColor=[UIColor lightGrayColor];
         _pageControl.currentPageIndicatorTintColor=[UIColor whiteColor];
         
     }
@@ -42,6 +42,9 @@
 
 
 - (void)initialize {
+    
+
+    
     self.collectionViewLayout = [[LCFCollectionViewFlowLayout alloc] init];
     
     self.collectionViewLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -51,7 +54,7 @@
     
     [self addSubview:self.pageControl];
     
-    self.collectionView.backgroundColor  = [UIColor whiteColor];
+    self.collectionView.backgroundColor  = [UIColor yellowColor];
     self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
     
     [self.collectionView registerClass:[LCFCollectionViewCell class] forCellWithReuseIdentifier:@"LCFCollectionViewCell"];
@@ -75,8 +78,32 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(applicationDidChangeStatusBarOrientationNotification:)
                                                  name:UIApplicationDidChangeStatusBarOrientationNotification
+     
+     
                                                object:nil];
+    
+
+//    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+//    gradientLayer.colors = @[(__bridge id)[UIColor blackColor].CGColor, (__bridge id)[UIColor clearColor].CGColor];
+//    gradientLayer.locations = @[@0.0, @1.0];
+//    gradientLayer.startPoint = CGPointMake(0, 1.0);
+//    gradientLayer.endPoint = CGPointMake(0, 0);
+//    gradientLayer.frame = CGRectMake(0, self.bounds.size.height-80, kScreenWidth, 80);
+    //    _gradientLayer=gradientLayer;
+//    [self.layer addSublayer:gradientLayer];
 }
+
+
+- (void)resetData{
+    self.collectionView.frame=self.bounds;
+    self.itemSize = CGSizeMake(kScreenWidth, self.bounds.size.height);
+    _pageControl.frame=CGRectMake((kScreenWidth-100)/2, self.frame.size.height-20, 100, 20);
+   
+
+    [self.collectionView reloadData];
+    
+}
+
 
 - (void)reportStatus {
     CGPoint point = CGPointMake(CGRectGetMidX(self.collectionView.bounds), CGRectGetMidY(self.collectionView.bounds));
@@ -204,7 +231,23 @@
     
     LCFInfiniteScrollViewItem *item = self.items[indexPath.row];
     
-//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:item.imageURL] placeholderImage:self.placeholderImage];
+    
+    [cell.gradientLayer removeFromSuperlayer];
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.colors = @[(__bridge id)[UIColor blackColor].CGColor, (__bridge id)[UIColor clearColor].CGColor];
+    gradientLayer.locations = @[@0.0, @1.0];
+    gradientLayer.startPoint = CGPointMake(0, 1.0);
+    gradientLayer.endPoint = CGPointMake(0, 0);
+    gradientLayer.frame = CGRectMake(0, self.bounds.size.height-150, kScreenWidth, 150);
+    cell.gradientLayer=gradientLayer;
+    [cell.imageView.layer addSublayer:gradientLayer];
+    
+    
+//    cell.gradientLayer.frame = CGRectMake(0, self.bounds.size.height-80, kScreenWidth, 80);
+//    [cell.gradientLayer removeFromSuperlayer];
+//    [cell.imageView.layer addSublayer:cell.gradientLayer];
+//    cell.gradientLayer.frame=cell.contentView.bounds;
+    cell.imageView.frame=cell.contentView.bounds;
     [cell.imageView yy_setImageWithURL:[NSURL URLWithString:item.imageURL] options:YYWebImageOptionProgressiveBlur |YYWebImageOptionSetImageWithFadeAnimation];
     cell.label.text = item.text;
     
@@ -213,15 +256,15 @@
     cell.label.font = [UIFont boldSystemFontOfSize:21];
   
     
-//    cell.label.backgroundColor=[UIColor redColor];
+
     cell.label.lineBreakMode = NSLineBreakByTruncatingTail;
     CGSize maximumLabelSize = CGSizeMake(kScreenWidth-20-15, 9999);//labelsize的最大值
     
     CGSize expectSize = [cell.label sizeThatFits:maximumLabelSize];
     //别忘了把frame给回label，如果用xib加了约束的话可以只改一个约束的值
-    cell.label.frame = CGRectMake(20, 200-20-expectSize.height, expectSize.width, expectSize.height);
-    
-
+    cell.label.frame = CGRectMake(20, self.bounds.size.height-20-expectSize.height, expectSize.width, expectSize.height);
+    NSLog(@"reload:%f",cell.bounds.size.height);
+    cell.backgroundColor=[UIColor whiteColor];
     return cell;
 }
 

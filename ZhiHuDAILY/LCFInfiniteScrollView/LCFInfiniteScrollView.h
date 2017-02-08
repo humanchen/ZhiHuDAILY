@@ -37,4 +37,11 @@
 
 @property (nonatomic,strong) UIPageControl *pageControl;
 
+
+@property (nonatomic, strong) UICollectionView *collectionView;
+
+
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
+
+- (void)resetData;
 @end

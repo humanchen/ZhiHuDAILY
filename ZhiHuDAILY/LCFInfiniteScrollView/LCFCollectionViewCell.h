@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong, readonly) UIImageView *imageView;
 @property (nonatomic, strong, readonly) UILabel *label;
-
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
+@property (nonatomic, strong) UIView *maskView;
 @end
