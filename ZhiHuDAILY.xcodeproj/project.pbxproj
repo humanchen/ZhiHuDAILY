@@ -27,6 +27,9 @@
 		65FD92241E37549A003D0FD6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD92231E37549A003D0FD6 /* HomeViewController.m */; };
 		65FD92291E376150003D0FD6 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD92271E376150003D0FD6 /* HomeTableViewCell.m */; };
 		65FD922A1E376150003D0FD6 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65FD92281E376150003D0FD6 /* HomeTableViewCell.xib */; };
+		E302DE281E48550300A6B962 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE271E48550300A6B962 /* ViewController.m */; };
+		E302DE2D1E48554700A6B962 /* NavDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE2A1E48554700A6B962 /* NavDelegate.m */; };
+		E302DE2E1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE2C1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m */; };
 		E32C39001E2DB41D00F39FC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C38FF1E2DB41D00F39FC8 /* main.m */; };
 		E32C39031E2DB41D00F39FC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C39021E2DB41D00F39FC8 /* AppDelegate.m */; };
 		E32C39091E2DB41D00F39FC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32C39071E2DB41D00F39FC8 /* Main.storyboard */; };
@@ -92,6 +95,12 @@
 		65FD92281E376150003D0FD6 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		AC3BFD2C8DFE23A0BEA64295 /* Pods-ZhiHuDAILY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiHuDAILY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiHuDAILY/Pods-ZhiHuDAILY.debug.xcconfig"; sourceTree = "<group>"; };
 		E25583339AD663D9E15E1280 /* Pods_ZhiHuDAILY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZhiHuDAILY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E302DE261E48550300A6B962 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E302DE271E48550300A6B962 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E302DE291E48554700A6B962 /* NavDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavDelegate.h; sourceTree = "<group>"; };
+		E302DE2A1E48554700A6B962 /* NavDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavDelegate.m; sourceTree = "<group>"; };
+		E302DE2B1E48554700A6B962 /* AAPLSwipeTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSwipeTransitionAnimator.h; sourceTree = "<group>"; };
+		E302DE2C1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSwipeTransitionAnimator.m; sourceTree = "<group>"; };
 		E32C38FB1E2DB41D00F39FC8 /* ZhiHuDAILY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiHuDAILY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32C38FF1E2DB41D00F39FC8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E32C39011E2DB41D00F39FC8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -286,6 +295,8 @@
 				E32C39151E2E05C400F39FC8 /* Main(主) */,
 				E32C39011E2DB41D00F39FC8 /* AppDelegate.h */,
 				E32C39021E2DB41D00F39FC8 /* AppDelegate.m */,
+				E302DE261E48550300A6B962 /* ViewController.h */,
+				E302DE271E48550300A6B962 /* ViewController.m */,
 				E32C39071E2DB41D00F39FC8 /* Main.storyboard */,
 				E32C390A1E2DB41D00F39FC8 /* Assets.xcassets */,
 				E32C390C1E2DB41D00F39FC8 /* LaunchScreen.storyboard */,
@@ -357,6 +368,10 @@
 				655E764D1E3366B700A986DF /* BaseViewModel.m */,
 				655E76521E33670600A986DF /* BaseModel.h */,
 				655E76531E33670600A986DF /* BaseModel.m */,
+				E302DE291E48554700A6B962 /* NavDelegate.h */,
+				E302DE2A1E48554700A6B962 /* NavDelegate.m */,
+				E302DE2B1E48554700A6B962 /* AAPLSwipeTransitionAnimator.h */,
+				E302DE2C1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -500,7 +515,10 @@
 				65FD92241E37549A003D0FD6 /* HomeViewController.m in Sources */,
 				6530E4B61E3391BD0065C7F0 /* Theme.m in Sources */,
 				65842AE81E3A00F700FA6616 /* LCFCollectionViewFlowLayout.m in Sources */,
+				E302DE2D1E48554700A6B962 /* NavDelegate.m in Sources */,
+				E302DE2E1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m in Sources */,
 				65842AD11E398B6D00FA6616 /* HomeViewModel.m in Sources */,
+				E302DE281E48550300A6B962 /* ViewController.m in Sources */,
 				65842ADA1E39917600FA6616 /* HomeRootClass.m in Sources */,
 				65842AD91E39917600FA6616 /* Top_Stories.m in Sources */,
 				E38807DB1E2E0BB500569D9D /* DEMOLeftMenuViewController.m in Sources */,

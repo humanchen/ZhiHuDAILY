@@ -68,7 +68,7 @@
     self.itemSpacing = 0;
     
     _autoscroll = YES;
-    _timeInterval = 5;
+    _timeInterval = 10;
     
     [self setUpTimer];
     

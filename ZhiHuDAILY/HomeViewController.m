@@ -13,12 +13,15 @@
 #import "HomeViewModel.h"
 #import "Top_Stories.h"
 #import "Stories.h"
+#import "ViewController.h"
+#import "NavDelegate.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIButton *leftButton;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LCFInfiniteScrollView *infiniteScrollView;
 @property (nonatomic, strong) HomeViewModel *homeViewModel;
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) NavDelegate *de;
 @end
 
 @implementation HomeViewController
@@ -62,7 +65,7 @@
         _infiniteScrollView.itemSize = CGSizeMake(kScreenWidth, 200);
         _infiniteScrollView.itemSpacing = 0;
         _infiniteScrollView.autoscroll = YES;
-        _infiniteScrollView.timeInterval = 2;
+        _infiniteScrollView.timeInterval = 5;
         
 //       NSArray * imageURLs = @[
 //                      @"http://a1.mzstatic.com/us/r30/Features49/v4/77/73/3b/77733b19-2fb6-be1a-6a5e-8e01c30d2c94/flowcase_796_390_2x.jpeg",
@@ -195,14 +198,13 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.navigationController pushViewController:[UIViewController new] animated:YES];
-//    SYBeforeStoryResult *result = self.storyGroup[indexPath.section];
-//    SYStory *story = result.stories[indexPath.row];
-//    
-//    [self gotoDetailControllerWithStory:story];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    _mainVC.openDrawerGestureModeMask=0;
+    ViewController *test=[ViewController new];
+    _de=[NavDelegate new];
+    self.navigationController.delegate=_de;
+    [self.navigationController pushViewController:test animated:YES];
 }
-
 
 - (void)didClickedMenuButton:(UIButton *)sender {
     [self.mainVC toggleDrawer];
