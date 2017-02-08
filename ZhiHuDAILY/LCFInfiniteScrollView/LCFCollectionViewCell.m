@@ -48,12 +48,14 @@
     self.label = [[UILabel alloc] init];
     [self.contentView addSubview:self.label];
     
-    self.label.font = [UIFont systemFontOfSize:20];
+    self.label.font = [UIFont boldSystemFontOfSize:20];
     self.label.textColor = [UIColor whiteColor];
-    self.label.textAlignment = NSTextAlignmentCenter;
+//    self.label.textAlignment = NSTextAlignmentCenter;
     self.label.numberOfLines = 0;
     
-    self.label.frame=CGRectMake(28, 150, kScreenWidth-28*2, 30);
+    self.label.frame=CGRectMake(20, 150, kScreenWidth-20*2, 30);
+    self.label.shadowColor=[UIColor blackColor];
+    self.label.shadowOffset=CGSizeMake(1, 1);
 //    self.label.translatesAutoresizingMaskIntoConstraints = NO;
 //    
 //    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[label]|"

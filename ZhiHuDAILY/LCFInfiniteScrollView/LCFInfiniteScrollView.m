@@ -210,16 +210,16 @@
     
     
     
-    cell.label.font = [UIFont systemFontOfSize:20];
+    cell.label.font = [UIFont boldSystemFontOfSize:21];
   
     
-    
+//    cell.label.backgroundColor=[UIColor redColor];
     cell.label.lineBreakMode = NSLineBreakByTruncatingTail;
-    CGSize maximumLabelSize = CGSizeMake(kScreenWidth-28*2, 9999);//labelsize的最大值
+    CGSize maximumLabelSize = CGSizeMake(kScreenWidth-20-15, 9999);//labelsize的最大值
     
     CGSize expectSize = [cell.label sizeThatFits:maximumLabelSize];
     //别忘了把frame给回label，如果用xib加了约束的话可以只改一个约束的值
-    cell.label.frame = CGRectMake(28, 200-24-expectSize.height, expectSize.width, expectSize.height);
+    cell.label.frame = CGRectMake(20, 200-20-expectSize.height, expectSize.width, expectSize.height);
     
 
     return cell;

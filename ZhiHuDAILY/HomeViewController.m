@@ -94,13 +94,14 @@
         UILabel *titleLabel = [[UILabel alloc] init];
         
         NSDictionary *attr = @{
-                               NSFontAttributeName:[UIFont systemFontOfSize:18],
+                               NSFontAttributeName:[UIFont boldSystemFontOfSize:18],
                                NSForegroundColorAttributeName:[UIColor whiteColor]};
         
         titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"今日要闻" attributes:attr];
         [titleLabel sizeToFit];
         titleLabel.center = CGPointMake(kScreenWidth*0.5, 35);
         _titleLabel = titleLabel;
+        
 //        [self.view addSubview:titleLabel];
         
 //        SYRefreshView *refresh = [SYRefreshView refreshViewWithScrollView:self.tableView];
