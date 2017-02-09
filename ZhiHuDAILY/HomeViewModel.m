@@ -27,11 +27,11 @@
            [NetworkTools GET:themeUrl parameters:nil success:^(id responseObject) {
                HomeRootClass *rootClass=[HomeRootClass yy_modelWithDictionary:responseObject];
                _topStorys = [rootClass.top_stories mutableCopy];
-//               _firstStorys = [rootClass.stories mutableCopy];
+//              _firstStorys = [rootClass.stories mutableCopy];
                _storyGroups = [NSMutableArray new];
                [_storyGroups addObject:rootClass];
                 [subscriber sendNext:nil];
-               
+//               [subscriber sendCompleted];
             } failure:^(NSError *error) {
                 
            }];
@@ -39,7 +39,7 @@
             return nil;
         }];
     }];
-    
+    _requestLatesdCommand.allowsConcurrentExecution=YES;
     
     
 }
