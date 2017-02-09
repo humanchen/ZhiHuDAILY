@@ -30,6 +30,7 @@
 		E302DE281E48550300A6B962 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE271E48550300A6B962 /* ViewController.m */; };
 		E302DE2D1E48554700A6B962 /* NavDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE2A1E48554700A6B962 /* NavDelegate.m */; };
 		E302DE2E1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE2C1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m */; };
+		E302DE311E4C09B200A6B962 /* RefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE301E4C09B200A6B962 /* RefreshView.m */; };
 		E32C39001E2DB41D00F39FC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C38FF1E2DB41D00F39FC8 /* main.m */; };
 		E32C39031E2DB41D00F39FC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C39021E2DB41D00F39FC8 /* AppDelegate.m */; };
 		E32C39091E2DB41D00F39FC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32C39071E2DB41D00F39FC8 /* Main.storyboard */; };
@@ -101,6 +102,8 @@
 		E302DE2A1E48554700A6B962 /* NavDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavDelegate.m; sourceTree = "<group>"; };
 		E302DE2B1E48554700A6B962 /* AAPLSwipeTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSwipeTransitionAnimator.h; sourceTree = "<group>"; };
 		E302DE2C1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSwipeTransitionAnimator.m; sourceTree = "<group>"; };
+		E302DE2F1E4C09B200A6B962 /* RefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshView.h; sourceTree = "<group>"; };
+		E302DE301E4C09B200A6B962 /* RefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshView.m; sourceTree = "<group>"; };
 		E32C38FB1E2DB41D00F39FC8 /* ZhiHuDAILY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiHuDAILY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32C38FF1E2DB41D00F39FC8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E32C39011E2DB41D00F39FC8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 				65FD92261E376150003D0FD6 /* HomeTableViewCell.h */,
 				65FD92271E376150003D0FD6 /* HomeTableViewCell.m */,
 				65FD92281E376150003D0FD6 /* HomeTableViewCell.xib */,
+				E302DE2F1E4C09B200A6B962 /* RefreshView.h */,
+				E302DE301E4C09B200A6B962 /* RefreshView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 				E32C39031E2DB41D00F39FC8 /* AppDelegate.m in Sources */,
 				65FD92241E37549A003D0FD6 /* HomeViewController.m in Sources */,
 				6530E4B61E3391BD0065C7F0 /* Theme.m in Sources */,
+				E302DE311E4C09B200A6B962 /* RefreshView.m in Sources */,
 				65842AE81E3A00F700FA6616 /* LCFCollectionViewFlowLayout.m in Sources */,
 				E302DE2D1E48554700A6B962 /* NavDelegate.m in Sources */,
 				E302DE2E1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m in Sources */,

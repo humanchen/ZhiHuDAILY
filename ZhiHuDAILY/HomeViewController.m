@@ -15,6 +15,7 @@
 #import "Stories.h"
 #import "ViewController.h"
 #import "NavDelegate.h"
+#import "RefreshView.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIButton *leftButton;
 @property (nonatomic, strong) UITableView *tableView;
@@ -22,6 +23,7 @@
 @property (nonatomic, strong) HomeViewModel *homeViewModel;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) NavDelegate *de;
+@property (nonatomic, strong) RefreshView *refreshView;
 @end
 
 @implementation HomeViewController
@@ -114,6 +116,17 @@
 }
 
 
+- (RefreshView *)refreshView{
+    if(!_refreshView){
+        _refreshView  = [RefreshView refreshViewWithScrollView:self.tableView];
+        _refreshView.center = CGPointMake(kScreenWidth*0.5 - 60, 35);
+//        _refreshView.backgroundColor=[UIColor redColor];
+//        _refreshView = refresh;
+
+    }
+    return _refreshView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor grayColor];
@@ -124,7 +137,7 @@
     [self.view addSubview:self.infiniteScrollView];
     [self.view addSubview:self.leftButton];
     [self.view addSubview:self.titleLabel];
-    
+     [self.view addSubview:self.refreshView];
     self.tableView.tableHeaderView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 220)];
     [self setupRAC];
     // Do any additional setup after loading the view.
@@ -155,6 +168,7 @@
 
         
         [_tableView reloadData];
+        [_refreshView endRefresh];
     }];
     [_homeViewModel.requestLatesdCommand execute:nil];
 }
@@ -227,6 +241,29 @@
     }
 }
 
+#pragma mark scrollView delegate
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (scrollView.contentOffset.y <= -80) {
+//        [[[_homeViewModel.requestLatesdCommand executionSignals]switchToLatest] subscribeNext:^(id  _Nullable x) {
+//
+//            
+//            
+//            NSMutableArray *items = [[NSMutableArray alloc] init];
+//            
+//            for (Top_Stories *topStory in _homeViewModel.topStorys) {
+//                LCFInfiniteScrollViewItem *item = [LCFInfiniteScrollViewItem itemWithImageURL:topStory.image text:topStory.title];
+//                [items addObject:item];
+//            }
+//            
+//            _infiniteScrollView.items = items;
+//            
+//            
+//            [_tableView reloadData];
+//            [_refreshView endRefresh];
+//        }];
+        [_homeViewModel.requestLatesdCommand execute:@"1"];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
