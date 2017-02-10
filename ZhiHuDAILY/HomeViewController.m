@@ -24,9 +24,21 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) NavDelegate *de;
 @property (nonatomic, strong) RefreshView *refreshView;
+@property (nonatomic, strong) UIView *headerView;
 @end
 
 @implementation HomeViewController
+
+- (UIView *)headerView {
+    if (!_headerView) {
+        
+        UIView *headerView = [[UIView alloc] init];
+        headerView.frame = CGRectMake(0, 0, kScreenWidth, 56);
+        headerView.backgroundColor = Color(53, 192, 253, 0.);
+        _headerView = headerView;
+    }
+    return _headerView;
+}
 
 
 - (UIButton *)leftButton {
@@ -135,6 +147,7 @@
     
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.infiniteScrollView];
+    [self.view addSubview:self.headerView];
     [self.view addSubview:self.leftButton];
     [self.view addSubview:self.titleLabel];
      [self.view addSubview:self.refreshView];
@@ -169,12 +182,14 @@
         
         [_tableView reloadData];
         [_refreshView endRefresh];
+        
+        [self test];
     }];
     [_homeViewModel.requestLatesdCommand execute:nil];
 }
 
 
-//- (void)test{
+- (void)test{
 //    NSString *url = @"http://news-at.zhihu.com/api/4/news/latest";
 //
 //    [PPNetworkHelper GET:url parameters:nil responseCache:^(id responseCache) {
@@ -186,7 +201,31 @@
 //    } failure:^(NSError *error) {
 //        //请求失败
 //    }];
-//}
+    
+    [[[_homeViewModel.requestBeforeCommand executionSignals]switchToLatest] subscribeNext:^(id  _Nullable x) {
+        
+        //        NSMutableArray *imageURLs = [NSMutableArray new];
+        //        for (Top_Stories *topStory in _homeViewModel.topStorys) {
+        //            [imageURLs addObject:topStory.image];
+        //        }
+        
+        
+//        NSMutableArray *items = [[NSMutableArray alloc] init];
+//        
+//        for (Top_Stories *topStory in _homeViewModel.topStorys) {
+//            LCFInfiniteScrollViewItem *item = [LCFInfiniteScrollViewItem itemWithImageURL:topStory.image text:topStory.title];
+//            [items addObject:item];
+//        }
+//        
+//        _infiniteScrollView.items = items;
+//        
+//        
+//        [_tableView reloadData];
+//        [_refreshView endRefresh];
+    }];
+    [_homeViewModel.requestBeforeCommand execute:nil];
+    
+}
 
 #pragma mark - Table view  delegate & data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -239,28 +278,22 @@
         self.infiniteScrollView.frame=CGRectMake(0, -yoffset, kScreenWidth, 220);
         [self.infiniteScrollView resetData];
     }
+    
+    
+    CGFloat alpha = 0;
+    if (yoffset <= 75.) {
+        alpha = 0;
+    } else if (yoffset < 165.) {
+        alpha = (yoffset-75.) / (165.-75);
+    } else {
+        alpha = 1.;
+    }
+    self.headerView.backgroundColor = Color(53, 192, 253, alpha);
 }
 
 #pragma mark scrollView delegate
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (scrollView.contentOffset.y <= -80) {
-//        [[[_homeViewModel.requestLatesdCommand executionSignals]switchToLatest] subscribeNext:^(id  _Nullable x) {
-//
-//            
-//            
-//            NSMutableArray *items = [[NSMutableArray alloc] init];
-//            
-//            for (Top_Stories *topStory in _homeViewModel.topStorys) {
-//                LCFInfiniteScrollViewItem *item = [LCFInfiniteScrollViewItem itemWithImageURL:topStory.image text:topStory.title];
-//                [items addObject:item];
-//            }
-//            
-//            _infiniteScrollView.items = items;
-//            
-//            
-//            [_tableView reloadData];
-//            [_refreshView endRefresh];
-//        }];
         [_homeViewModel.requestLatesdCommand execute:@"1"];
     }
 }

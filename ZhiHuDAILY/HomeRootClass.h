@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "HomeBaseClass.h"
 @class Stories,Top_Stories;
 
-@interface HomeRootClass : NSObject
+@interface HomeRootClass : HomeBaseClass
 
-@property (nonatomic, copy) NSString *date;
-
-@property (nonatomic, strong) NSArray<Stories *> *stories;
+//@property (nonatomic, copy) NSString *date;
+//
+//@property (nonatomic, strong) NSArray<Stories *> *stories;
 
 @property (nonatomic, strong) NSArray<Top_Stories *> *top_stories;
 

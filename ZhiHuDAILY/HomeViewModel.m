@@ -8,6 +8,8 @@
 
 #import "HomeViewModel.h"
 #import "HomeRootClass.h"
+#import "HomeBaseClass.h"
+#import "TestClass.h"
 @implementation HomeViewModel
 - (instancetype)init
 {
@@ -23,7 +25,9 @@
     _requestLatesdCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
         
         return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-           NSString *themeUrl = @"http://news-at.zhihu.com/api/4/news/latest";
+           
+            
+            NSString *themeUrl = @"http://news-at.zhihu.com/api/4/news/latest";
            [NetworkTools GET:themeUrl parameters:nil success:^(id responseObject) {
                HomeRootClass *rootClass=[HomeRootClass yy_modelWithDictionary:responseObject];
                _topStorys = [rootClass.top_stories mutableCopy];
@@ -41,7 +45,32 @@
     }];
     _requestLatesdCommand.allowsConcurrentExecution=YES;
     
+    _requestBeforeCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        
+        return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+            HomeRootClass *root=_storyGroups.lastObject;
+            NSString *dateTime=root.date;
+            NSString *beforeUrl = [NSString stringWithFormat:@"http://news.at.zhihu.com/api/4/news/before/%@", dateTime];
+            [NetworkTools GET:beforeUrl parameters:nil success:^(id responseObject) {
+                HomeBaseClass *baseClass=[HomeBaseClass yy_modelWithDictionary:responseObject];
+                
+                [_storyGroups addObject:baseClass];
+                NSString *test=baseClass.date;
+//                _topStorys = [rootClass.top_stories mutableCopy];
+//                //              _firstStorys = [rootClass.stories mutableCopy];
+//                _storyGroups = [NSMutableArray new];
+//                [_storyGroups addObject:rootClass];
+//                [subscriber sendNext:nil];
+                //               [subscriber sendCompleted];
+            } failure:^(NSError *error) {
+                
+            }];
+            
+            return nil;
+        }];
+    }];
     
+    _requestBeforeCommand.allowsConcurrentExecution=YES;
 }
 
 @end
