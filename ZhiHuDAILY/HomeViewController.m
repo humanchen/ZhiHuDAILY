@@ -16,6 +16,7 @@
 #import "ViewController.h"
 #import "NavDelegate.h"
 #import "RefreshView.h"
+#import "HomeTableHeaderView.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIButton *leftButton;
 @property (nonatomic, strong) UITableView *tableView;
@@ -34,7 +35,7 @@
         
         UIView *headerView = [[UIView alloc] init];
         headerView.frame = CGRectMake(0, 0, kScreenWidth, 56);
-        headerView.backgroundColor = Color(53, 192, 253, 0.);
+        headerView.backgroundColor = Color(23, 144, 211, 0.);
         _headerView = headerView;
     }
     return _headerView;
@@ -55,7 +56,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, kScreenHeight-20) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.rowHeight = 80;
@@ -75,8 +76,8 @@
 - (LCFInfiniteScrollView *)infiniteScrollView{
     if(!_infiniteScrollView){
         
-        _infiniteScrollView = [[LCFInfiniteScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 220)];
-        _infiniteScrollView.itemSize = CGSizeMake(kScreenWidth, 220);
+        _infiniteScrollView = [[LCFInfiniteScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 240)];
+        _infiniteScrollView.itemSize = CGSizeMake(kScreenWidth, 240);
         _infiniteScrollView.itemSpacing = 0;
         _infiniteScrollView.autoscroll = YES;
         _infiniteScrollView.timeInterval = 5;
@@ -164,10 +165,7 @@
     }
     [[[_homeViewModel.requestLatesdCommand executionSignals]switchToLatest] subscribeNext:^(id  _Nullable x) {
         
-//        NSMutableArray *imageURLs = [NSMutableArray new];
-//        for (Top_Stories *topStory in _homeViewModel.topStorys) {
-//            [imageURLs addObject:topStory.image];
-//        }
+
 
         
         NSMutableArray *items = [[NSMutableArray alloc] init];
@@ -182,73 +180,78 @@
         
         [_tableView reloadData];
         [_refreshView endRefresh];
-        
-        [self test];
+
+ 
     }];
     [_homeViewModel.requestLatesdCommand execute:nil];
+    
+    
+    [[[_homeViewModel.requestBeforeCommand executionSignals]switchToLatest] subscribeNext:^(id  _Nullable x) {
+        [_tableView reloadData];
+    }];
 }
 
 
 - (void)test{
-//    NSString *url = @"http://news-at.zhihu.com/api/4/news/latest";
-//
-//    [PPNetworkHelper GET:url parameters:nil responseCache:^(id responseCache) {
-//        //加载缓存数据
-//    } success:^(id responseObject) {
-//        //请求成功
-//        HomeRootClass *rootClass=[HomeRootClass yy_modelWithDictionary:responseObject];
-//        NSLog(@"123");
-//    } failure:^(NSError *error) {
-//        //请求失败
-//    }];
     
-    [[[_homeViewModel.requestBeforeCommand executionSignals]switchToLatest] subscribeNext:^(id  _Nullable x) {
-        
-        //        NSMutableArray *imageURLs = [NSMutableArray new];
-        //        for (Top_Stories *topStory in _homeViewModel.topStorys) {
-        //            [imageURLs addObject:topStory.image];
-        //        }
-        
-        
-//        NSMutableArray *items = [[NSMutableArray alloc] init];
-//        
-//        for (Top_Stories *topStory in _homeViewModel.topStorys) {
-//            LCFInfiniteScrollViewItem *item = [LCFInfiniteScrollViewItem itemWithImageURL:topStory.image text:topStory.title];
-//            [items addObject:item];
-//        }
-//        
-//        _infiniteScrollView.items = items;
-//        
-//        
-//        [_tableView reloadData];
-//        [_refreshView endRefresh];
-    }];
+
     [_homeViewModel.requestBeforeCommand execute:nil];
     
 }
 
 #pragma mark - Table view  delegate & data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return _homeViewModel.storyGroups.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-   HomeRootClass *rootClass = _homeViewModel.storyGroups.firstObject;
+   HomeRootClass *rootClass = _homeViewModel.storyGroups[section];
     return rootClass.stories.count;
-//    SYBeforeStoryResult *result = self.storyGroup[section];
-//    return 10;
+
     
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    HomeTableHeaderView *headerView = [HomeTableHeaderView headerViewWithTableView:tableView];
+    HomeBaseClass *result = self.homeViewModel.storyGroups[section];
+    headerView.date = result.date;
+    return section ? headerView : nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return section ? 36 : CGFLOAT_MIN;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    if (section == 0) {
+        CGRect frame = self.headerView.frame;
+        frame.size.height = 55;
+        self.headerView.frame=frame;
+        self.titleLabel.alpha = 1;
+    }
+    // 当显示最后一组时，加载更早之前的数据
+    if (section == self.homeViewModel.storyGroups.count-1) {
+        [self test];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section {
+    if (section == 0) {
+        CGRect frame = self.headerView.frame;
+        frame.size.height = 20;
+        self.headerView.frame=frame;
+        self.titleLabel.alpha = 0;
+    }
 }
 
 - (HomeTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeTableViewCell" forIndexPath:indexPath];
-    HomeRootClass *rootClass = _homeViewModel.storyGroups.firstObject;
+    HomeBaseClass *rootClass = _homeViewModel.storyGroups[indexPath.section];
     NSArray *arr=rootClass.stories;
     Stories *story = arr[indexPath.row];
     cell.story=story;
-//    SYBeforeStoryResult *result = self.storyGroup[indexPath.section];
-//    cell.story = result.stories[indexPath.row];
     return cell;
 }
 
@@ -269,13 +272,13 @@
     CGFloat yoffset = scrollView.contentOffset.y;
     if(yoffset<=0){
         //下推
-        NSLog(@"t");
-        self.infiniteScrollView.frame=CGRectMake(0, 0, kScreenWidth, 220-yoffset);
+//        NSLog(@"t");
+        self.infiniteScrollView.frame=CGRectMake(0, 0, kScreenWidth, 240-yoffset);
         [self.infiniteScrollView resetData];
         
     }else{
         //上拉
-        self.infiniteScrollView.frame=CGRectMake(0, -yoffset, kScreenWidth, 220);
+        self.infiniteScrollView.frame=CGRectMake(0, -yoffset, kScreenWidth, 240);
         [self.infiniteScrollView resetData];
     }
     
@@ -288,13 +291,22 @@
     } else {
         alpha = 1.;
     }
-    self.headerView.backgroundColor = Color(53, 192, 253, alpha);
+    self.headerView.backgroundColor = Color(23, 144, 211, alpha);
 }
 
 #pragma mark scrollView delegate
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (scrollView.contentOffset.y <= -80) {
-        [_homeViewModel.requestLatesdCommand execute:@"1"];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+           [_homeViewModel.requestLatesdCommand execute:nil];
+       });
+
+
+
+        
+        
+      
     }
 }
 
@@ -303,14 +315,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

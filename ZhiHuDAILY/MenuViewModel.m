@@ -25,13 +25,15 @@
         
         return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
             NSString *themeUrl = @"http://news-at.zhihu.com/api/4/themes";
-            [NetworkTools GET:themeUrl parameters:nil success:^(id responseObject) {
+            [NetworkTools GET:themeUrl parameters:nil success:^(id responseObject,bool New) {
                 
                 NSArray *dataArr  =[responseObject objectForKey:@"others"] ;
                _menuList =  [[NSArray yy_modelArrayWithClass:[Theme class] json:dataArr] mutableCopy];
             
                 [subscriber sendNext:_menuList];
-             
+                if(New==true)
+                    [subscriber sendCompleted];
+                
             } failure:^(NSError *error) {
                 
             }];

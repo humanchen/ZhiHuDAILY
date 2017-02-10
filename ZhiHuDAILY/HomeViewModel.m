@@ -28,14 +28,15 @@
            
             
             NSString *themeUrl = @"http://news-at.zhihu.com/api/4/news/latest";
-           [NetworkTools GET:themeUrl parameters:nil success:^(id responseObject) {
+           [NetworkTools GET:themeUrl parameters:nil success:^(id responseObject,bool New) {
                HomeRootClass *rootClass=[HomeRootClass yy_modelWithDictionary:responseObject];
                _topStorys = [rootClass.top_stories mutableCopy];
-//              _firstStorys = [rootClass.stories mutableCopy];
+
                _storyGroups = [NSMutableArray new];
                [_storyGroups addObject:rootClass];
                 [subscriber sendNext:nil];
-//               [subscriber sendCompleted];
+               if(New==true)
+               [subscriber sendCompleted];
             } failure:^(NSError *error) {
                 
            }];
@@ -43,7 +44,7 @@
             return nil;
         }];
     }];
-    _requestLatesdCommand.allowsConcurrentExecution=YES;
+//    _requestLatesdCommand.allowsConcurrentExecution=YES;
     
     _requestBeforeCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
         
@@ -51,17 +52,17 @@
             HomeRootClass *root=_storyGroups.lastObject;
             NSString *dateTime=root.date;
             NSString *beforeUrl = [NSString stringWithFormat:@"http://news.at.zhihu.com/api/4/news/before/%@", dateTime];
-            [NetworkTools GET:beforeUrl parameters:nil success:^(id responseObject) {
+           __block int add=0;
+            [NetworkTools GET:beforeUrl parameters:nil success:^(id responseObject,bool New) {
+                if(add==1)
+                    return ;
                 HomeBaseClass *baseClass=[HomeBaseClass yy_modelWithDictionary:responseObject];
                 
                 [_storyGroups addObject:baseClass];
-                NSString *test=baseClass.date;
-//                _topStorys = [rootClass.top_stories mutableCopy];
-//                //              _firstStorys = [rootClass.stories mutableCopy];
-//                _storyGroups = [NSMutableArray new];
-//                [_storyGroups addObject:rootClass];
-//                [subscriber sendNext:nil];
-                //               [subscriber sendCompleted];
+                add=1;
+                [subscriber sendNext:nil];
+                [subscriber sendCompleted];
+             
             } failure:^(NSError *error) {
                 
             }];
@@ -70,7 +71,7 @@
         }];
     }];
     
-    _requestBeforeCommand.allowsConcurrentExecution=YES;
+//    _requestBeforeCommand.allowsConcurrentExecution=YES;
 }
 
 @end

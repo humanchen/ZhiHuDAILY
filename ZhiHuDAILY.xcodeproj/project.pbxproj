@@ -39,6 +39,7 @@
 		E32C39181E2E076A00F39FC8 /* MainControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C39171E2E076A00F39FC8 /* MainControllerViewController.m */; };
 		E3442C141E4D55B70023812E /* HomeBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E3442C131E4D55B70023812E /* HomeBaseClass.m */; };
 		E3442C171E4D5E8A0023812E /* TestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E3442C161E4D5E8A0023812E /* TestClass.m */; };
+		E3442C1A1E4D691C0023812E /* HomeTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3442C191E4D691C0023812E /* HomeTableHeaderView.m */; };
 		E38807DA1E2E0BB500569D9D /* DEMOFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38807D31E2E0BB500569D9D /* DEMOFirstViewController.m */; };
 		E38807DB1E2E0BB500569D9D /* DEMOLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38807D51E2E0BB500569D9D /* DEMOLeftMenuViewController.m */; };
 		E38807DC1E2E0BB500569D9D /* DEMORightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38807D71E2E0BB500569D9D /* DEMORightMenuViewController.m */; };
@@ -120,6 +121,8 @@
 		E3442C131E4D55B70023812E /* HomeBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeBaseClass.m; sourceTree = "<group>"; };
 		E3442C151E4D5E8A0023812E /* TestClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestClass.h; sourceTree = "<group>"; };
 		E3442C161E4D5E8A0023812E /* TestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestClass.m; sourceTree = "<group>"; };
+		E3442C181E4D691C0023812E /* HomeTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableHeaderView.h; sourceTree = "<group>"; };
+		E3442C191E4D691C0023812E /* HomeTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableHeaderView.m; sourceTree = "<group>"; };
 		E38807D21E2E0BB500569D9D /* DEMOFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOFirstViewController.h; sourceTree = "<group>"; };
 		E38807D31E2E0BB500569D9D /* DEMOFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOFirstViewController.m; sourceTree = "<group>"; };
 		E38807D41E2E0BB500569D9D /* DEMOLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOLeftMenuViewController.h; sourceTree = "<group>"; };
@@ -259,6 +262,8 @@
 				65FD92281E376150003D0FD6 /* HomeTableViewCell.xib */,
 				E302DE2F1E4C09B200A6B962 /* RefreshView.h */,
 				E302DE301E4C09B200A6B962 /* RefreshView.m */,
+				E3442C181E4D691C0023812E /* HomeTableHeaderView.h */,
+				E3442C191E4D691C0023812E /* HomeTableHeaderView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				E302DE281E48550300A6B962 /* ViewController.m in Sources */,
 				65842ADA1E39917600FA6616 /* HomeRootClass.m in Sources */,
 				65842AD91E39917600FA6616 /* Top_Stories.m in Sources */,
+				E3442C1A1E4D691C0023812E /* HomeTableHeaderView.m in Sources */,
 				E3442C171E4D5E8A0023812E /* TestClass.m in Sources */,
 				E38807DB1E2E0BB500569D9D /* DEMOLeftMenuViewController.m in Sources */,
 				E38807DD1E2E0BB500569D9D /* DEMOSecondViewController.m in Sources */,
