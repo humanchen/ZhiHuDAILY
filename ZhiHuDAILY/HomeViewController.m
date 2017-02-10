@@ -192,7 +192,7 @@
 }
 
 
-- (void)test{
+- (void)loadMore{
     
 
     [_homeViewModel.requestBeforeCommand execute:nil];
@@ -233,7 +233,7 @@
     }
     // 当显示最后一组时，加载更早之前的数据
     if (section == self.homeViewModel.storyGroups.count-1) {
-        [self test];
+        [self loadMore];
     }
 }
 
