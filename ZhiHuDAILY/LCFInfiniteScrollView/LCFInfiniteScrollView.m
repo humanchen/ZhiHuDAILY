@@ -54,8 +54,8 @@
     
     [self addSubview:self.pageControl];
     
-    self.collectionView.backgroundColor  = [UIColor yellowColor];
-    self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
+   
+//    self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
     
     [self.collectionView registerClass:[LCFCollectionViewCell class] forCellWithReuseIdentifier:@"LCFCollectionViewCell"];
     
@@ -83,14 +83,7 @@
                                                object:nil];
     
 
-//    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-//    gradientLayer.colors = @[(__bridge id)[UIColor blackColor].CGColor, (__bridge id)[UIColor clearColor].CGColor];
-//    gradientLayer.locations = @[@0.0, @1.0];
-//    gradientLayer.startPoint = CGPointMake(0, 1.0);
-//    gradientLayer.endPoint = CGPointMake(0, 0);
-//    gradientLayer.frame = CGRectMake(0, self.bounds.size.height-80, kScreenWidth, 80);
-    //    _gradientLayer=gradientLayer;
-//    [self.layer addSublayer:gradientLayer];
+
 }
 
 

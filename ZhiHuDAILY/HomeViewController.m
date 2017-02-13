@@ -62,12 +62,12 @@
         _tableView.rowHeight = 80;
         _tableView.showsVerticalScrollIndicator = NO;
         
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 220)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
         _tableView.tableHeaderView = view;
         
         
         [_tableView registerNib:[UINib nibWithNibName:@"HomeTableViewCell" bundle:nil] forCellReuseIdentifier:@"HomeTableViewCell"];
-        _tableView.backgroundColor=[UIColor redColor];
+//        _tableView.backgroundColor=[UIColor redColor];
         
     }
     return _tableView;
@@ -76,29 +76,12 @@
 - (LCFInfiniteScrollView *)infiniteScrollView{
     if(!_infiniteScrollView){
         
-        _infiniteScrollView = [[LCFInfiniteScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 240)];
-        _infiniteScrollView.itemSize = CGSizeMake(kScreenWidth, 240);
+        _infiniteScrollView = [[LCFInfiniteScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 220)];
+        _infiniteScrollView.itemSize = CGSizeMake(kScreenWidth, 220);
         _infiniteScrollView.itemSpacing = 0;
         _infiniteScrollView.autoscroll = YES;
         _infiniteScrollView.timeInterval = 5;
         
-//       NSArray * imageURLs = @[
-//                      @"http://a1.mzstatic.com/us/r30/Features49/v4/77/73/3b/77733b19-2fb6-be1a-6a5e-8e01c30d2c94/flowcase_796_390_2x.jpeg",
-//                      @"http://a2.mzstatic.com/us/r30/Features49/v4/93/31/d4/9331d426-4596-51f4-8acd-5b0aba8c1692/flowcase_796_390_2x.jpeg",
-//                      @"http://a5.mzstatic.com/us/r30/Features49/v4/2f/7e/1c/2f7e1c3a-0431-bfc6-13fc-fe77f3a2fcef/flowcase_796_390_2x.jpeg",
-//                      @"http://a1.mzstatic.com/us/r30/Features69/v4/09/83/bf/0983bfcf-52e2-8e16-5541-7cd7e3a10c9e/flowcase_796_390_2x.jpeg",
-//                      @"http://a1.mzstatic.com/us/r30/Features49/v4/33/b8/0c/33b80c3e-3f8f-5c31-50a6-b5964a6324f7/flowcase_796_390_2x.jpeg",
-//                      @"http://a3.mzstatic.com/us/r30/Features49/v4/db/53/76/db5376f7-ff1b-0c07-501b-8e3e78f3efaf/flowcase_796_390_2x.jpeg",
-//                      ];
-//
-//        NSMutableArray *items = [[NSMutableArray alloc] init];
-//                      
-//                      for (NSString *imageURL in imageURLs) {
-//                          LCFInfiniteScrollViewItem *item = [LCFInfiniteScrollViewItem itemWithImageURL:imageURL text:nil];
-//                          [items addObject:item];
-//                      }
-//
-//        _infiniteScrollView.items = items;
     }
     return _infiniteScrollView;
 }
@@ -116,13 +99,7 @@
         [titleLabel sizeToFit];
         titleLabel.center = CGPointMake(kScreenWidth*0.5, 35);
         _titleLabel = titleLabel;
-        
-//        [self.view addSubview:titleLabel];
-        
-//        SYRefreshView *refresh = [SYRefreshView refreshViewWithScrollView:self.tableView];
-//        refresh.center = CGPointMake(kScreenWidth*0.5 - 60, 35);
-//        [self.view addSubview:refresh];
-//        _refreshView = refresh;
+
         
     }
     return _titleLabel;
@@ -133,11 +110,15 @@
     if(!_refreshView){
         _refreshView  = [RefreshView refreshViewWithScrollView:self.tableView];
         _refreshView.center = CGPointMake(kScreenWidth*0.5 - 60, 35);
-//        _refreshView.backgroundColor=[UIColor redColor];
-//        _refreshView = refresh;
+
 
     }
     return _refreshView;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [self.mainVC setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
 }
 
 - (void)viewDidLoad {
@@ -151,8 +132,8 @@
     [self.view addSubview:self.headerView];
     [self.view addSubview:self.leftButton];
     [self.view addSubview:self.titleLabel];
-     [self.view addSubview:self.refreshView];
-    self.tableView.tableHeaderView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 220)];
+    [self.view addSubview:self.refreshView];
+    self.tableView.tableHeaderView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
     [self setupRAC];
     // Do any additional setup after loading the view.
 }
@@ -273,12 +254,12 @@
     if(yoffset<=0){
         //下推
 //        NSLog(@"t");
-        self.infiniteScrollView.frame=CGRectMake(0, 0, kScreenWidth, 240-yoffset);
+        self.infiniteScrollView.frame=CGRectMake(0, 0, kScreenWidth, 220-yoffset);
         [self.infiniteScrollView resetData];
         
     }else{
         //上拉
-        self.infiniteScrollView.frame=CGRectMake(0, -yoffset, kScreenWidth, 240);
+        self.infiniteScrollView.frame=CGRectMake(0, -yoffset, kScreenWidth, 220);
         [self.infiniteScrollView resetData];
     }
     
@@ -302,11 +283,6 @@
            [_homeViewModel.requestLatesdCommand execute:nil];
        });
 
-
-
-        
-        
-      
     }
 }
 
