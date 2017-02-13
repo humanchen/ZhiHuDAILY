@@ -6,13 +6,29 @@
 //  Copyright © 2017年 陈思宇. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "DetailController.h"
 
-@interface ViewController ()
-
+@interface DetailController ()<WKNavigationDelegate,WKUIDelegate>
+@property (nonatomic,strong)WKWebView *webView;
 @end
 
-@implementation ViewController
+@implementation DetailController
+
+- (UIWebView *)webView {
+    if (!_webView) {
+        WKWebView *webView = [[UIWebView alloc] init];
+        webView.frame = CGRectMake(0, 20, kScreenWidth, kScreenHeight-40-20);
+        _webView = webView;
+        _webView.delegate = self;
+        _webView.scrollView.delegate = self;
+        _webView.backgroundColor = kWhiteColor;
+    }
+    return _webView;
+}
+
+- (void)setStory:(Stories *)story{
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,7 +37,10 @@
     // Do any additional setup after loading the view.
     self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [self.view addGestureRecognizer:self.panGestureRecognizer];
+    
+    [self.view addSubview:self.webView];
 }
+
 
 
 - (void)handlePan:(UIPanGestureRecognizer *)gestureRecognizer {

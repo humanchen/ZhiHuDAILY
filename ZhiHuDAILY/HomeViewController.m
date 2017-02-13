@@ -13,7 +13,7 @@
 #import "HomeViewModel.h"
 #import "Top_Stories.h"
 #import "Stories.h"
-#import "ViewController.h"
+#import "DetailController.h"
 #import "NavDelegate.h"
 #import "RefreshView.h"
 #import "HomeTableHeaderView.h"
@@ -239,7 +239,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     _mainVC.openDrawerGestureModeMask=0;
-    ViewController *test=[ViewController new];
+    DetailController *test=[DetailController new];
     _de=[NavDelegate new];
     self.navigationController.delegate=_de;
     [self.navigationController pushViewController:test animated:YES];

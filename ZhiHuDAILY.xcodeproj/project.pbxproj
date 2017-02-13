@@ -27,7 +27,7 @@
 		65FD92241E37549A003D0FD6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD92231E37549A003D0FD6 /* HomeViewController.m */; };
 		65FD92291E376150003D0FD6 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD92271E376150003D0FD6 /* HomeTableViewCell.m */; };
 		65FD922A1E376150003D0FD6 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65FD92281E376150003D0FD6 /* HomeTableViewCell.xib */; };
-		E302DE281E48550300A6B962 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE271E48550300A6B962 /* ViewController.m */; };
+		E302DE281E48550300A6B962 /* DetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE271E48550300A6B962 /* DetailController.m */; };
 		E302DE2D1E48554700A6B962 /* NavDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE2A1E48554700A6B962 /* NavDelegate.m */; };
 		E302DE2E1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE2C1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m */; };
 		E302DE311E4C09B200A6B962 /* RefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE301E4C09B200A6B962 /* RefreshView.m */; };
@@ -40,6 +40,8 @@
 		E3442C141E4D55B70023812E /* HomeBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E3442C131E4D55B70023812E /* HomeBaseClass.m */; };
 		E3442C171E4D5E8A0023812E /* TestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E3442C161E4D5E8A0023812E /* TestClass.m */; };
 		E3442C1A1E4D691C0023812E /* HomeTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3442C191E4D691C0023812E /* HomeTableHeaderView.m */; };
+		E3442C1D1E5185D80023812E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3442C1C1E5185D80023812E /* WebKit.framework */; };
+		E3442C211E51871F0023812E /* DetailStory.m in Sources */ = {isa = PBXBuildFile; fileRef = E3442C201E51871F0023812E /* DetailStory.m */; };
 		E38807E21E2F55C200569D9D /* MMExampleDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E38807E11E2F55C200569D9D /* MMExampleDrawerVisualStateManager.m */; };
 		E38807E71E30A97600569D9D /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38807E61E30A97600569D9D /* BaseViewController.m */; };
 		E38807EA1E30A9C200569D9D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38807E91E30A9C200569D9D /* LoginViewController.m */; };
@@ -95,8 +97,8 @@
 		65FD92281E376150003D0FD6 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		AC3BFD2C8DFE23A0BEA64295 /* Pods-ZhiHuDAILY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiHuDAILY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiHuDAILY/Pods-ZhiHuDAILY.debug.xcconfig"; sourceTree = "<group>"; };
 		E25583339AD663D9E15E1280 /* Pods_ZhiHuDAILY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZhiHuDAILY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E302DE261E48550300A6B962 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E302DE271E48550300A6B962 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E302DE261E48550300A6B962 /* DetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailController.h; sourceTree = "<group>"; };
+		E302DE271E48550300A6B962 /* DetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailController.m; sourceTree = "<group>"; };
 		E302DE291E48554700A6B962 /* NavDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavDelegate.h; sourceTree = "<group>"; };
 		E302DE2A1E48554700A6B962 /* NavDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavDelegate.m; sourceTree = "<group>"; };
 		E302DE2B1E48554700A6B962 /* AAPLSwipeTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSwipeTransitionAnimator.h; sourceTree = "<group>"; };
@@ -119,6 +121,9 @@
 		E3442C161E4D5E8A0023812E /* TestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestClass.m; sourceTree = "<group>"; };
 		E3442C181E4D691C0023812E /* HomeTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableHeaderView.h; sourceTree = "<group>"; };
 		E3442C191E4D691C0023812E /* HomeTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableHeaderView.m; sourceTree = "<group>"; };
+		E3442C1C1E5185D80023812E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		E3442C1F1E51871F0023812E /* DetailStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailStory.h; sourceTree = "<group>"; };
+		E3442C201E51871F0023812E /* DetailStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailStory.m; sourceTree = "<group>"; };
 		E38807E01E2F55C200569D9D /* MMExampleDrawerVisualStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMExampleDrawerVisualStateManager.h; sourceTree = "<group>"; };
 		E38807E11E2F55C200569D9D /* MMExampleDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMExampleDrawerVisualStateManager.m; sourceTree = "<group>"; };
 		E38807E51E30A97600569D9D /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -132,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3442C1D1E5185D80023812E /* WebKit.framework in Frameworks */,
 				633E5B41B382EDA244AA7E4C /* Pods_ZhiHuDAILY.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +265,7 @@
 		E0FACF7755A9DB57581D80D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E3442C1C1E5185D80023812E /* WebKit.framework */,
 				65FD921F1E364077003D0FD6 /* libz.tbd */,
 				65FD921D1E364070003D0FD6 /* libsqlite3.tbd */,
 				65FD921B1E364068003D0FD6 /* MobileCoreServices.framework */,
@@ -294,6 +301,7 @@
 		E32C38FD1E2DB41D00F39FC8 /* ZhiHuDAILY */ = {
 			isa = PBXGroup;
 			children = (
+				E3442C1B1E5184A60023812E /* Detail */,
 				65FD92211E37547A003D0FD6 /* Home(首页) */,
 				655E76561E336C6400A986DF /* Network(网络) */,
 				E38807E41E30A95B00569D9D /* Base */,
@@ -303,8 +311,6 @@
 				E32C39151E2E05C400F39FC8 /* Main(主) */,
 				E32C39011E2DB41D00F39FC8 /* AppDelegate.h */,
 				E32C39021E2DB41D00F39FC8 /* AppDelegate.m */,
-				E302DE261E48550300A6B962 /* ViewController.h */,
-				E302DE271E48550300A6B962 /* ViewController.m */,
 				E32C39071E2DB41D00F39FC8 /* Main.storyboard */,
 				E32C390A1E2DB41D00F39FC8 /* Assets.xcassets */,
 				E32C390C1E2DB41D00F39FC8 /* LaunchScreen.storyboard */,
@@ -330,6 +336,25 @@
 				E32C39171E2E076A00F39FC8 /* MainControllerViewController.m */,
 			);
 			name = "Main(主)";
+			sourceTree = "<group>";
+		};
+		E3442C1B1E5184A60023812E /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E3442C1E1E5186EC0023812E /* Model */,
+				E302DE261E48550300A6B962 /* DetailController.h */,
+				E302DE271E48550300A6B962 /* DetailController.m */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		E3442C1E1E5186EC0023812E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E3442C1F1E51871F0023812E /* DetailStory.h */,
+				E3442C201E51871F0023812E /* DetailStory.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		E38807DE1E2F552200569D9D /* Tools(工具) */ = {
@@ -503,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65842AE91E3A00F700FA6616 /* LCFInfiniteScrollView.m in Sources */,
+				E3442C211E51871F0023812E /* DetailStory.m in Sources */,
 				65446D231E2E569D00B0C504 /* MenuViewController.m in Sources */,
 				E38807E71E30A97600569D9D /* BaseViewController.m in Sources */,
 				655E76541E33670600A986DF /* BaseModel.m in Sources */,
@@ -519,7 +545,7 @@
 				E302DE2D1E48554700A6B962 /* NavDelegate.m in Sources */,
 				E302DE2E1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m in Sources */,
 				65842AD11E398B6D00FA6616 /* HomeViewModel.m in Sources */,
-				E302DE281E48550300A6B962 /* ViewController.m in Sources */,
+				E302DE281E48550300A6B962 /* DetailController.m in Sources */,
 				65842ADA1E39917600FA6616 /* HomeRootClass.m in Sources */,
 				65842AD91E39917600FA6616 /* Top_Stories.m in Sources */,
 				E3442C1A1E4D691C0023812E /* HomeTableHeaderView.m in Sources */,

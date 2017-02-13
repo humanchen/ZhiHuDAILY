@@ -8,7 +8,7 @@
 
 #import "NavDelegate.h"
 #import "AAPLSwipeTransitionAnimator.h"
-#import "ViewController.h"
+#import "DetailController.h"
 @implementation NavDelegate
 
 - (UIPercentDrivenInteractiveTransition *)interactiveTransition {
@@ -48,13 +48,13 @@
     _interactiveTransition.completionSpeed=0.3;
     if(operation==UINavigationControllerOperationPush){
         [self.interactiveTransition updateInteractiveTransition:0];
-        ViewController *v2=(ViewController *)toVC;
+        DetailController *v2=(DetailController *)toVC;
         v2.interactiveTransition=self.interactiveTransition;
     }
     
     if(operation==UINavigationControllerOperationPop){
     [self.interactiveTransition updateInteractiveTransition:0];
-        ViewController *v2=(ViewController *)fromVC;
+        DetailController *v2=(DetailController *)fromVC;
         v2.interactiveTransition=self.interactiveTransition;
     }
    return self.ani;
