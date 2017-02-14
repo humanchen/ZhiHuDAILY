@@ -7,40 +7,85 @@
 //
 
 #import "DetailController.h"
-
+#import "DetailViewModel.h"
+#import "SYStoryNavigationView.h"
 @interface DetailController ()<WKNavigationDelegate,WKUIDelegate>
-@property (nonatomic,strong)WKWebView *webView;
+@property (nonatomic,strong)UIWebView *webView;
+@property (nonatomic,strong)DetailViewModel *dVM;
+@property (nonatomic, strong) SYStoryNavigationView *storyNav;
 @end
 
 @implementation DetailController
 
 - (UIWebView *)webView {
     if (!_webView) {
-        WKWebView *webView = [[UIWebView alloc] init];
-        webView.frame = CGRectMake(0, 20, kScreenWidth, kScreenHeight-40-20);
+        
+//        NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
+//        
+//        WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+//        WKUserContentController *wkUController = [[WKUserContentController alloc] init];
+//        [wkUController addUserScript:wkUScript];
+//        
+//        WKWebViewConfiguration *wkWebConfig = [[WKWebViewConfiguration alloc] init];
+//        wkWebConfig.userContentController = wkUController;
+        
+        UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, kScreenHeight-40-20)  ];
+//        webView.configuration=wkWebConfig;
+//        webView.frame = CGRectMake(0, 20, kScreenWidth, kScreenHeight-40-20);
+        
         _webView = webView;
-        _webView.delegate = self;
-        _webView.scrollView.delegate = self;
-        _webView.backgroundColor = kWhiteColor;
+        
+//        _webView.delegate = self;
+//        _webView.scrollView.delegate = self;
+//        _webView.backgroundColor = [UIColor whiteColor];
     }
     return _webView;
 }
 
+- (SYStoryNavigationView *)storyNav {
+    if (!_storyNav) {
+        _storyNav = [SYStoryNavigationView storyNaviView];
+        _storyNav.frame = CGRectMake(0, kScreenHeight-40, kScreenWidth, 40);
+        
+//        _storyNav.delegate = self;
+    }
+    return _storyNav;
+}
+
 - (void)setStory:(Stories *)story{
-    
+    _story=story;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden=YES;
     self.view.backgroundColor=[UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets=NO;
     // Do any additional setup after loading the view.
     self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    
+    
     [self.view addGestureRecognizer:self.panGestureRecognizer];
     
+    
+    
     [self.view addSubview:self.webView];
+    [self.view addSubview:self.storyNav];
+    [self setupRAC];
 }
 
+- (void)setupRAC{
+    _dVM=[[DetailViewModel alloc]init];
+    _dVM.storyid=self.story.id;
+    [[[_dVM.requestDetailCommand executionSignals]switchToLatest] subscribeNext:^(id  _Nullable x) {
+        
+        [self.webView loadHTMLString:_dVM.detailStory.htmlStr baseURL:nil];
+        
+    }];
+    [_dVM.requestDetailCommand execute:nil];
+   
+ 
+}
 
 
 - (void)handlePan:(UIPanGestureRecognizer *)gestureRecognizer {

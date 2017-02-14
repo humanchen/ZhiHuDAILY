@@ -240,6 +240,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     _mainVC.openDrawerGestureModeMask=0;
     DetailController *test=[DetailController new];
+    HomeBaseClass *rootClass = _homeViewModel.storyGroups[indexPath.section];
+    NSArray *arr=rootClass.stories;
+    Stories *story = arr[indexPath.row];
+    test.story=story;
     _de=[NavDelegate new];
     self.navigationController.delegate=_de;
     [self.navigationController pushViewController:test animated:YES];
