@@ -17,6 +17,11 @@
 #define Color(r, g, b, a) [UIColor colorWithRed:r/255. green:g/255. blue:b/255. alpha:a*1.0]
 #define kScreenWidth         [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight        [UIScreen mainScreen].bounds.size.height
+
+#define White_StatusBar    do {[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;} while (0)
+
+#define Black_StatusBar     do {[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;} while (0)
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 

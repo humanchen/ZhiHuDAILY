@@ -9,10 +9,12 @@
 #import "DetailController.h"
 #import "DetailViewModel.h"
 #import "SYStoryNavigationView.h"
-@interface DetailController ()<WKNavigationDelegate,WKUIDelegate>
+#import "SYTopView.h"
+@interface DetailController ()<UIScrollViewDelegate>
 @property (nonatomic,strong)UIWebView *webView;
 @property (nonatomic,strong)DetailViewModel *dVM;
 @property (nonatomic, strong) SYStoryNavigationView *storyNav;
+@property (nonatomic, strong) SYTopView   *topView;
 @end
 
 @implementation DetailController
@@ -36,7 +38,7 @@
         _webView = webView;
         
 //        _webView.delegate = self;
-//        _webView.scrollView.delegate = self;
+        _webView.scrollView.delegate = self;
 //        _webView.backgroundColor = [UIColor whiteColor];
     }
     return _webView;
@@ -51,6 +53,18 @@
     }
     return _storyNav;
 }
+
+
+- (SYTopView *)topView {
+    if (!_topView) {
+        _topView = [SYTopView topView];
+        _topView.clipsToBounds = YES;
+        _topView.frame = CGRectMake(0, -40, kScreenWidth, 220+40);
+//        _topView.hidden = YES;
+    }
+    return _topView;
+}
+
 
 - (void)setStory:(Stories *)story{
     _story=story;
@@ -70,6 +84,7 @@
     
     
     [self.view addSubview:self.webView];
+    [self.view addSubview:self.topView];
     [self.view addSubview:self.storyNav];
     [self setupRAC];
 }
@@ -80,13 +95,73 @@
     [[[_dVM.requestDetailCommand executionSignals]switchToLatest] subscribeNext:^(id  _Nullable x) {
         
         [self.webView loadHTMLString:_dVM.detailStory.htmlStr baseURL:nil];
-        
+        _topView.story=_dVM.detailStory;
     }];
     [_dVM.requestDetailCommand execute:nil];
    
  
 }
 
+//- (UIView *)currentTopView {
+//        if (!self.topView.hidden) {
+//            return self.topView;
+//        } else if (!self.headerView.hidden) {
+//            return self.headerView;
+//        }
+//        return nil;
+//    
+////    return !self.topView.hidden ? self.topView : (!self.headerView.hidden ? self.headerView : nil);
+//}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+   CGFloat yoffset = scrollView.contentOffset.y;
+    if (yoffset > 220) Black_StatusBar;
+    else White_StatusBar;
+
+    
+    if(yoffset<0){
+        //下拉
+        self.topView.frame = CGRectMake(0, -40, kScreenWidth, 260-yoffset);
+    }else{
+        //上拉
+        self.topView.frame = CGRectMake(0, -40-yoffset, kScreenWidth, 260);
+    }
+//    if (yoffset < 0) {
+//        if (self.topView == [self currentTopView]) {
+//            self.topView.frame = CGRectMake(0, -40, kScreenWidth, 260-yoffset);
+//        }
+//        self.header.transform = CGAffineTransformMakeTranslation(0, -yoffset);
+//        
+//        CGAffineTransform transform = CGAffineTransformIdentity;
+//        if (yoffset < -80.) transform = CGAffineTransformMakeRotation(M_PI);
+//        
+//        if (!CGAffineTransformEqualToTransform(self.downArrow.transform, transform)) {
+//            [UIView animateWithDuration:0.25 animations:^{
+//                self.downArrow.transform = transform;
+//            }];
+//        }
+//    } else {
+//        if (self.topView == [self currentTopView]) {
+//            self.topView.frame = CGRectMake(0, -40-yoffset, kScreenWidth, 260);
+//        }
+//        
+//        CGFloat boffset = kScreenHeight-80-scrollView.contentSize.height + yoffset;
+//        
+//        if (boffset > 0) {
+//            self.footer.transform = CGAffineTransformMakeTranslation(0, -boffset);
+//            CGAffineTransform transform = CGAffineTransformIdentity;
+//            if (boffset > 60.) transform = CGAffineTransformMakeRotation(M_PI);
+//            
+//            if (!CGAffineTransformEqualToTransform(self.upArrow.transform, transform)) {
+//                [UIView animateWithDuration:0.25 animations:^{
+//                    self.upArrow.transform = transform;
+//                }];
+//            }
+//        }
+//    }
+
+}
 
 - (void)handlePan:(UIPanGestureRecognizer *)gestureRecognizer {
     
