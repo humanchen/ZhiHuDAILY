@@ -31,6 +31,8 @@
 		E302DE2D1E48554700A6B962 /* NavDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE2A1E48554700A6B962 /* NavDelegate.m */; };
 		E302DE2E1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE2C1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m */; };
 		E302DE311E4C09B200A6B962 /* RefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = E302DE301E4C09B200A6B962 /* RefreshView.m */; };
+		E31B14331E5686DC00056C02 /* SYTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E31B14311E5686DC00056C02 /* SYTopView.m */; };
+		E31B14341E5686DC00056C02 /* SYTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31B14321E5686DC00056C02 /* SYTopView.xib */; };
 		E32C39001E2DB41D00F39FC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C38FF1E2DB41D00F39FC8 /* main.m */; };
 		E32C39031E2DB41D00F39FC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E32C39021E2DB41D00F39FC8 /* AppDelegate.m */; };
 		E32C39091E2DB41D00F39FC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32C39071E2DB41D00F39FC8 /* Main.storyboard */; };
@@ -108,6 +110,9 @@
 		E302DE2C1E48554700A6B962 /* AAPLSwipeTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSwipeTransitionAnimator.m; sourceTree = "<group>"; };
 		E302DE2F1E4C09B200A6B962 /* RefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshView.h; sourceTree = "<group>"; };
 		E302DE301E4C09B200A6B962 /* RefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshView.m; sourceTree = "<group>"; };
+		E31B14301E5686DC00056C02 /* SYTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYTopView.h; sourceTree = "<group>"; };
+		E31B14311E5686DC00056C02 /* SYTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYTopView.m; sourceTree = "<group>"; };
+		E31B14321E5686DC00056C02 /* SYTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SYTopView.xib; sourceTree = "<group>"; };
 		E32C38FB1E2DB41D00F39FC8 /* ZhiHuDAILY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiHuDAILY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32C38FF1E2DB41D00F39FC8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E32C39011E2DB41D00F39FC8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -382,6 +387,9 @@
 				E34710A81E52D8880073E71C /* SYStoryNavigationView.h */,
 				E34710A91E52D8880073E71C /* SYStoryNavigationView.m */,
 				E34710AA1E52D8880073E71C /* SYStoryNavigationView.xib */,
+				E31B14301E5686DC00056C02 /* SYTopView.h */,
+				E31B14311E5686DC00056C02 /* SYTopView.m */,
+				E31B14321E5686DC00056C02 /* SYTopView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -498,6 +506,7 @@
 				E34710AC1E52D8880073E71C /* SYStoryNavigationView.xib in Resources */,
 				E32C39091E2DB41D00F39FC8 /* Main.storyboard in Resources */,
 				65FD922A1E376150003D0FD6 /* HomeTableViewCell.xib in Resources */,
+				E31B14341E5686DC00056C02 /* SYTopView.xib in Resources */,
 				65446D241E2E569D00B0C504 /* MenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,6 +594,7 @@
 				65842ADB1E39917600FA6616 /* Stories.m in Sources */,
 				65842AE71E3A00F700FA6616 /* LCFCollectionViewCell.m in Sources */,
 				655E76511E3366EE00A986DF /* MenuViewModel.m in Sources */,
+				E31B14331E5686DC00056C02 /* SYTopView.m in Sources */,
 				65FD92291E376150003D0FD6 /* HomeTableViewCell.m in Sources */,
 				E38807EA1E30A9C200569D9D /* LoginViewController.m in Sources */,
 				E32C39001E2DB41D00F39FC8 /* main.m in Sources */,
