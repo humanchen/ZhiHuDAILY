@@ -255,7 +255,7 @@
     
     CGSize expectSize = [cell.label sizeThatFits:maximumLabelSize];
     //别忘了把frame给回label，如果用xib加了约束的话可以只改一个约束的值
-    cell.label.frame = CGRectMake(20, self.bounds.size.height-20-expectSize.height, expectSize.width, expectSize.height);
+    cell.label.frame = CGRectMake(20, self.bounds.size.height-25-expectSize.height, expectSize.width, expectSize.height);
     NSLog(@"reload:%f",cell.bounds.size.height);
     cell.backgroundColor=[UIColor whiteColor];
     return cell;

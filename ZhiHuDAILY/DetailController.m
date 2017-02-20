@@ -119,13 +119,15 @@
     if (yoffset > 220) Black_StatusBar;
     else White_StatusBar;
 
-    
+    _topView.story=_dVM.detailStory;
     if(yoffset<0){
         //下拉
         self.topView.frame = CGRectMake(0, -40, kScreenWidth, 260-yoffset);
+        [_topView reset];
     }else{
         //上拉
         self.topView.frame = CGRectMake(0, -40-yoffset, kScreenWidth, 260);
+         [_topView reset];
     }
 //    if (yoffset < 0) {
 //        if (self.topView == [self currentTopView]) {

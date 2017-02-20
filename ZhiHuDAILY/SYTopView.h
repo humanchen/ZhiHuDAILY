@@ -7,7 +7,7 @@
 
 @property (nonatomic, strong) DetailStory *story;
 
-
+-(void)reset;
 + (instancetype)topView;
 
 @end
