@@ -80,10 +80,17 @@
     cell.textLabel.text=theme.name;
     cell.textLabel.textColor=[UIColor lightGrayColor];
     cell.textLabel.font=[UIFont systemFontOfSize:16];
-    if(indexPath.row==0)
+    if(indexPath.row==0){
     cell.imageView.image=[UIImage imageNamed:@"Dark_Menu_Icon_Home"];
-    else
+        cell.accessoryView=nil;
+    }
+    else{
         cell.imageView.image=nil;
+        UIButton *btn=[UIButton new];
+        btn.bounds=CGRectMake(0, 0, 30, 36);
+        [btn setImage:[UIImage imageNamed:@"Menu_Follow"] forState:UIControlStateNormal];
+        cell.accessoryView=btn;
+    }
     return cell;
 }
 

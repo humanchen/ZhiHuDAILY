@@ -82,6 +82,7 @@
         _infiniteScrollView.autoscroll = YES;
         _infiniteScrollView.timeInterval = 5;
         
+        
     }
     return _infiniteScrollView;
 }
@@ -135,6 +136,20 @@
     [self.view addSubview:self.refreshView];
     self.tableView.tableHeaderView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
     [self setupRAC];
+    
+    __weak HomeViewController *ws=self;
+    self.infiniteScrollView.didSelectItemAtIndex=^(NSUInteger index){
+        NSMutableArray *topStorys=ws.homeViewModel.topStorys;
+        ws.mainVC.openDrawerGestureModeMask=0;
+        DetailController *test=[DetailController new];
+//        HomeBaseClass *rootClass = _homeViewModel.storyGroups[indexPath.section];
+        Stories *story = topStorys[index];
+        test.story=story;
+        ws.de=[NavDelegate new];
+        ws.navigationController.delegate=ws.de;
+        [ws.navigationController pushViewController:test animated:YES];
+
+    };
     // Do any additional setup after loading the view.
 }
 
@@ -289,6 +304,11 @@
 
     }
 }
+
+
+//- (void)infiniteScrollView:(LCFInfiniteScrollView *)infiniteScrollView didDisplayItemAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

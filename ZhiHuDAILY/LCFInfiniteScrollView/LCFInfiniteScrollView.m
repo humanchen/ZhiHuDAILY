@@ -265,7 +265,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.didSelectItemAtIndex) {
-        self.didSelectItemAtIndex(indexPath.row % (self.items.count / 3));
+//        self.didSelectItemAtIndex(indexPath.row % (self.items.count / 3));
+        self.didSelectItemAtIndex(self.pageControl.currentPage);
+
+        
     }
 }
 
