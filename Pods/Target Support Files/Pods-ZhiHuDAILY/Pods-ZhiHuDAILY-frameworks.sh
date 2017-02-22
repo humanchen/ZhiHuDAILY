@@ -85,7 +85,6 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/MJRefresh/MJRefresh.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MMDrawerController/MMDrawerController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PPNetworkHelper/PPNetworkHelper.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ReactiveObjC/ReactiveObjC.framework"
@@ -96,7 +95,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/MJRefresh/MJRefresh.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MMDrawerController/MMDrawerController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PPNetworkHelper/PPNetworkHelper.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ReactiveObjC/ReactiveObjC.framework"
