@@ -10,7 +10,7 @@
 #import "DetailViewModel.h"
 #import "SYStoryNavigationView.h"
 #import "SYTopView.h"
-@interface DetailController ()<UIScrollViewDelegate>
+@interface DetailController ()<UIScrollViewDelegate,UIGestureRecognizerDelegate>
 @property (nonatomic,strong)UIWebView *webView;
 @property (nonatomic,strong)DetailViewModel *dVM;
 @property (nonatomic, strong) SYStoryNavigationView *storyNav;
@@ -37,7 +37,7 @@
         
         _webView = webView;
         
-//        _webView.delegate = self;
+//        _webView.scrollView.panGestureRecognizer.delegate = self;
         _webView.scrollView.delegate = self;
 //        _webView.backgroundColor = [UIColor whiteColor];
     }
@@ -77,7 +77,7 @@
     self.automaticallyAdjustsScrollViewInsets=NO;
     // Do any additional setup after loading the view.
     self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
-    
+    self.panGestureRecognizer.delegate=self;
     
     [self.view addGestureRecognizer:self.panGestureRecognizer];
     
@@ -194,6 +194,39 @@
     }
 }
 
+-(BOOL)gestureRecognizer:(UIGestureRecognizer*) gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer*)otherGestureRecognizer
+{
+    return YES;
+//    if ([gestureRecognizer.view isKindOfClass:[UIScrollView class]]) {
+//        
+//        return NO;
+//        
+//    }
+//    else {
+//        
+//        return YES;
+//        
+//    }
+}
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+//{
+//    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+//        // Find the current vertical scrolling velocity
+//        CGFloat velocity = [(UIPanGestureRecognizer *)gestureRecognizer velocityInView:gestureRecognizer.view].y;
+//        // Return YES if no scrolling up
+//        return fabs(velocity) <= 0.2;
+//    }
+//    return YES;
+//}
+//
+//- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
+//    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]])
+//    {
+//        CGPoint translation = [gestureRecognizer translationInView:self.view];
+//        return fabs(translation.y) <= fabs(translation.x);
+//    }
+//    return YES;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -45,7 +45,7 @@
                                                          fromViewController:(UIViewController *)fromVC
                                                            toViewController:(UIViewController *)toVC  {
     _operation=operation;
-    _interactiveTransition.completionSpeed=0.3;
+    _interactiveTransition.completionSpeed=(1-_interactiveTransition.percentComplete)*0.25;
     if(operation==UINavigationControllerOperationPush){
         [self.interactiveTransition updateInteractiveTransition:0];
         DetailController *v2=(DetailController *)toVC;

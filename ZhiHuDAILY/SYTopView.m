@@ -26,6 +26,9 @@
         self.sourceLabel.shadowColor=[UIColor blackColor];
         self.sourceLabel.shadowOffset=CGSizeMake(0.5, 0.5);
     }
+    
+
+    
     [self reset];
     [self setNeedsLayout];
 }
@@ -41,6 +44,15 @@
     _topHeight.constant=self.bounds.size.height-25-expectSize.height;
     [self setNeedsLayout];
     
+    [self.gradientLayer removeFromSuperlayer];
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.colors = @[(__bridge id)[UIColor blackColor].CGColor, (__bridge id)[UIColor clearColor].CGColor];
+    gradientLayer.locations = @[@0.0, @1.0];
+    gradientLayer.startPoint = CGPointMake(0, 1.0);
+    gradientLayer.endPoint = CGPointMake(0, 0);
+    gradientLayer.frame = CGRectMake(0, self.bounds.size.height-150, kScreenWidth, 150);
+    self.gradientLayer=gradientLayer;
+    [self.imageView.layer addSublayer:gradientLayer];
 }
 
 

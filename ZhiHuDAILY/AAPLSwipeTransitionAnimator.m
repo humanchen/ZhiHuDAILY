@@ -25,7 +25,7 @@
 //| ----------------------------------------------------------------------------
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.35;
+    return 0.25;
 }
 
 //| ----------------------------------------------------------------------------

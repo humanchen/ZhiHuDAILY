@@ -117,8 +117,13 @@
     return _refreshView;
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
+//- (void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:YES];
+////    [self.mainVC setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+//}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
     [self.mainVC setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
 }
 
