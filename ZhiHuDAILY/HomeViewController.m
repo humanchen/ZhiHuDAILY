@@ -61,7 +61,7 @@
         _tableView.dataSource = self;
         _tableView.rowHeight = 80;
         _tableView.showsVerticalScrollIndicator = NO;
-        
+        _tableView.scrollsToTop=YES;
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
         _tableView.tableHeaderView = view;
         

@@ -64,7 +64,7 @@
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate   = self;
-    
+    self.collectionView.scrollsToTop=NO;
     self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     self.itemSize = self.frame.size;
